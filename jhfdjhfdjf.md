@@ -12,12 +12,15 @@ Ce tutoriel vous guide pas à pas pour :
 * Écrire la logique de l’application dans un fichier Python
 * Lancer l’application avec un script propre
 
+## Références obligatoires :
 
+- https://doc.qt.io/qtforpython-6/gettingstarted.html#getting-started
+- https://www.qt.io/download-dev
 
 ## Prérequis
 
 * Windows 10 ou 11
-* Python 3.10 ou 3.11 installé (évitez Python 3.13)
+* Python 3.9 , 3.10 ou 3.11 ... installé
 * Terminal (PowerShell ou CMD)
 * Accès à Internet pour installer les paquets
 
@@ -46,7 +49,7 @@ python -m venv env
 ## Étape 3 — Installer PySide6 et les outils Qt
 
 ```bash
-pip install pyside6 pyside6-tools
+pip install pyside6 pyside6-tools (problème avec python 3.13 --> https://doc.qt.io/qtforpython-6/gettingstarted.html#getting-started)
 ```
 
 Vérifiez que la commande suivante fonctionne :
