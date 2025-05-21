@@ -1,0 +1,199 @@
+# Tutoriel : Créer une application graphique en Python avec PySide6 et Qt Designer
+
+
+
+## Introduction
+
+Ce tutoriel vous guide pas à pas pour :
+
+* Installer un environnement de développement propre avec PySide6
+* Utiliser Qt Designer pour créer une interface graphique sans coder
+* Convertir le fichier `.ui` en code Python
+* Écrire la logique de l’application dans un fichier Python
+* Lancer l’application avec un script propre
+
+
+
+## Prérequis
+
+* Windows 10 ou 11
+* Python 3.10 ou 3.11 installé (évitez Python 3.13)
+* Terminal (PowerShell ou CMD)
+* Accès à Internet pour installer les paquets
+
+
+
+## Étape 1 — Créer la structure du projet
+
+Dans le dossier de votre choix (ex. `C:\Users\votre_nom\Desktop\projet_pyside6`) :
+
+```bash
+mkdir projet_pyside6
+cd projet_pyside6
+```
+
+---
+
+## Étape 2 — Créer et activer un environnement virtuel
+
+```bash
+python -m venv env
+.\env\Scripts\activate
+```
+
+
+
+## Étape 3 — Installer PySide6 et les outils Qt
+
+```bash
+pip install pyside6 pyside6-tools
+```
+
+Vérifiez que la commande suivante fonctionne :
+
+```bash
+pyside6-designer
+```
+
+Si oui, Qt Designer est bien installé.
+
+
+
+## Étape 4 — Lancer Qt Designer
+
+Vous pouvez lancer Qt Designer de deux façons :
+
+### A. Via la ligne de commande :
+
+```bash
+pyside6-designer
+```
+
+### B. Via un fichier `.bat`
+
+Créez un fichier nommé `lancer_designer.bat` dans le dossier du projet, avec le contenu suivant :
+
+```bat
+@echo off
+cd /d %~dp0
+call env\Scripts\activate.bat
+pyside6-designer
+```
+
+Double-cliquez sur ce fichier pour ouvrir Qt Designer automatiquement.
+
+
+
+## Étape 5 — Créer l’interface graphique
+
+Dans Qt Designer :
+
+1. Choisissez **Main Window** comme type d’interface.
+2. Ajoutez un **QPushButton** et un **QLabel**.
+3. Renommez-les dans l’onglet "Object Inspector" :
+
+   * `pushButton`
+   * `label`
+4. Sauvegardez sous le nom `interface.ui` dans le dossier du projet.
+
+
+## Étape 6 — Convertir `.ui` en `.py`
+
+Dans le terminal :
+
+```bash
+pyside6-uic interface.ui -o interface.py
+```
+
+Cela crée un fichier `interface.py` contenant la structure de l’interface en Python.
+
+### Option : script pour automatiser la conversion
+
+Créez un fichier `convert_ui.bat` :
+
+```bat
+@echo off
+cd /d %~dp0
+call env\Scripts\activate.bat
+pyside6-uic interface.ui -o interface.py
+pause
+```
+
+
+
+## Étape 7 — Écrire le script principal `main.py`
+
+Créez un fichier `main.py` :
+
+```python
+import sys
+from PySide6.QtWidgets import QApplication, QMainWindow
+from interface import Ui_MainWindow
+
+class MonApp(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.ui.pushButton.clicked.connect(self.saluer)
+
+    def saluer(self):
+        self.ui.label.setText("Bonjour depuis PySide6 !")
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    fenetre = MonApp()
+    fenetre.show()
+    sys.exit(app.exec())
+```
+
+
+## Étape 8 — Lancer l’application
+
+Activez l’environnement virtuel si ce n’est pas déjà fait :
+
+```bash
+.\env\Scripts\activate
+```
+
+Puis lancez :
+
+```bash
+python main.py
+```
+
+L’application graphique s’ouvre avec le bouton et le label fonctionnels.
+
+---
+
+## Structure finale du projet
+
+```
+projet_pyside6/
+│
+├── env/                    → environnement virtuel (à ne pas modifier manuellement)
+├── interface.ui            → interface Qt Designer (créée manuellement)
+├── interface.py            → code Python généré automatiquement
+├── main.py                 → script principal de l’application
+├── lancer_designer.bat     → lance Qt Designer
+└── convert_ui.bat          → régénère le fichier interface.py
+```
+
+
+
+## Bonnes pratiques pédagogiques
+
+* Ne jamais modifier `interface.py` manuellement. Il doit être régénéré avec `pyside6-uic`.
+* Nommez correctement les objets dans Qt Designer (`pushButton`, `lineEdit`, etc.).
+* Centralisez toute la logique dans `main.py` ou dans des modules séparés si le projet devient complexe.
+* Utilisez des environnements virtuels pour isoler vos dépendances.
+
+
+
+## Pour aller plus loin
+
+* Ajouter des champs de formulaire (QLineEdit), des validations, des boîtes de dialogue
+* Utiliser `QStackedWidget` pour faire des interfaces avec plusieurs vues
+* Ajouter des ressources graphiques avec `pyside6-rcc`
+* Organiser le projet avec des modules (`/src`, `/ui`, etc.)
+
