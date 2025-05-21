@@ -1,4 +1,4 @@
-# Tutoriel : Créer une application graphique en Python avec PySide6 et Qt Designer
+# Créer une application graphique en Python avec PySide6 et Qt Designer
 
 
 
@@ -35,7 +35,7 @@ mkdir projet_pyside6
 cd projet_pyside6
 ```
 
----
+
 
 ## Étape 2 — Créer et activer un environnement virtuel
 
