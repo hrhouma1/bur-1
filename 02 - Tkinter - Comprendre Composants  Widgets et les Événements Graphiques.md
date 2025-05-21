@@ -916,3 +916,36 @@ venv\Scripts\activate
 [Revenir à la Table des matières – Tkinter](#table-des-matières-tkinter)
 
 <br/>
+
+
+# Exercice 
+
+- Créez plusieurs environnements virtuels avec les versions suivantes de python (3.9 , 3.10 et 3.13)
+
+
+
+
+### Création de venv39 
+```bash
+python3.9 -m venv venv39
+venv39\Scripts\activate
+python --version
+deactivate
+```
+
+
+### Création de venv310
+```bash
+python3.10 -m venv venv310
+venv310\Scripts\activate
+python --version
+deactivate
+```
+
+### Création de venv313
+```bash
+python3.13 -m venv venv313
+venv313\Scripts\activate
+python --version
+deactivate
+```
