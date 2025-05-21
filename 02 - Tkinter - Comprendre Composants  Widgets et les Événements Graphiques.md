@@ -69,6 +69,36 @@ root.geometry("200x100")
 root.mainloop()
 ```
 
+### Question:
+
+- Comment avoir un fullscreens ?
+
+```python
+root.attributes('-fullscreen', True)
+```
+
+
+#### Exemple complet
+```python
+import tkinter as tk
+
+# Création de la fenêtre racine
+root = tk.Tk()
+#root.geometry("500x500")
+root.attributes('-fullscreen', True)
+root.title('Fenêtre')
+
+# Création d'une étiquette
+texte1 = tk.Label(root, text='Bonjour tout le monde !', fg='red')
+texte1.pack()
+
+# Création d'un bouton
+bouton1 = tk.Button(root, text='Quitter', command=root.destroy)
+bouton1.pack()
+
+# Affichage de la fenêtre
+root.mainloop()
+
 ### b) Définir un titre pour la fenêtre
 ```python
 import tkinter as tk
