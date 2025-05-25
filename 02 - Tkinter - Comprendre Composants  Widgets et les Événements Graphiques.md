@@ -646,8 +646,9 @@ root.mainloop()
 
 # Explications
 
+<br/>
 
-## 15.1. Objectif du code
+# 15.1. Objectif du code
 
 Ce code montre **comment lier un champ de saisie (`Entry`) à une étiquette (`Label`) via une variable `StringVar`**, et comment **mettre à jour dynamiquement le texte affiché** en appuyant sur un bouton.
 
@@ -767,6 +768,89 @@ Démarre la boucle principale de l’interface graphique.
 [Revenir à la Table des matières – Tkinter](#table-des-matières-tkinter)
 
 <br/>
+
+
+
+
+<br/>
+
+# 15.11. Exercice pour corriger l'erreur
+
+
+### **Problème:**
+
+Dans ce code, l'entrée (`Entry`) et l'étiquette (`Label`) partagent **la même `StringVar` (`label_text`)**.
+
+```python
+entry = tk.Entry(root, textvariable=label_text)
+label = tk.Label(root, textvariable=label_text)
+```
+
+Mais **l’utilisateur a aussi un bouton** censé mettre à jour le texte affiché dans le `Label` :
+
+```python
+update_button = tk.Button(root, text="Mettre à jour l'étiquette", command=update_label)
+```
+
+
+
+###  **Ce qui se passe réellement**
+
+1. Le widget `Entry` est **lié à** `label_text` via `textvariable=label_text`.
+2. Donc, **à chaque fois que l'utilisateur tape dans `Entry`**, **`label_text` est mis à jour automatiquement**.
+3. Le `Label` est aussi lié à `label_text`, donc **il change en temps réel** dès qu'on tape quelque chose dans le champ.
+
+
+
+###  **Résultat :**
+
+Le bouton `"Mettre à jour"` **ne sert à rien**, car la mise à jour est déjà **automatique** !
+
+
+<br/>
+<br/>
+
+#  **Solution:**
+
+Si tu veux que l’utilisateur **entre du texte**, puis **appuie sur un bouton pour le transférer dans le `Label`**, il **faut séparer** les deux valeurs :
+
+```python
+import tkinter as tk
+
+def update_label():
+    label.config(text=entry.get())
+
+root = tk.Tk()
+root.title("Exemple corrigé")
+
+entry = tk.Entry(root)
+entry.pack(pady=10)
+
+label = tk.Label(root, text="Valeur initiale")
+label.pack()
+
+update_button = tk.Button(root, text="Mettre à jour l'étiquette", command=update_label)
+update_button.pack(pady=10)
+
+root.mainloop()
+```
+
+
+* `Entry` est **indépendant**
+* `Label` ne change que **lorsque tu cliques sur le bouton**
+* Le comportement est **prévisible et explicite**
+
+
+# **Résumé:**
+
+| Version                                             | Comportement                                               | Pertinent si…                       |
+| --------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------- |
+| `textvariable` partagé                              | Le label se met à jour en **temps réel** pendant la frappe | Tu veux du **binding automatique**  |
+| `text="..."` dans `Label` et `.config()` via bouton | Le label change **uniquement au clic**                     | Tu veux **un déclenchement manuel** |
+
+
+<br/>
+
 
 # 16. Évènements de Clavier et de Souris
 
