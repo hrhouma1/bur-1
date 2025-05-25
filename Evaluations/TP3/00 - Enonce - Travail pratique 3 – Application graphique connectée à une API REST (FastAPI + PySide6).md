@@ -1,6 +1,6 @@
 <h1 id="tp3-enonce">Travail pratique 3 – Application graphique connectée à une API REST (FastAPI + PySide6)</h1>
 
-## Contexte pédagogique
+# Contexte
 
 Vous travaillez comme développeur dans une entreprise qui conçoit des interfaces clients destinées à consommer des services web internes. Vous êtes chargé de développer **une application graphique PySide6** qui interagit dynamiquement avec une **API REST développée en FastAPI**, représentant un service de gestion d’un **catalogue de cours** et d’**inscription d’étudiants**.
 
@@ -11,9 +11,8 @@ L’application doit pouvoir :
 * Ajouter un cours dans le système
 * Rechercher et supprimer dynamiquement des données
 
----
 
-## Objectif général
+# Objectif général
 
 Développer un système complet **client-serveur** :
 
@@ -21,9 +20,9 @@ Développer un système complet **client-serveur** :
 * Frontend : **PySide6** consommant cette API via des requêtes HTTP
 * Données : stockées via **SQLAlchemy** et une base SQLite
 
----
 
-## Objectifs spécifiques
+
+# Objectifs spécifiques
 
 1. Développer une API REST complète avec **FastAPI**
 2. Créer des modèles `Cours` et `Étudiant` avec **SQLAlchemy**
@@ -33,11 +32,12 @@ Développer un système complet **client-serveur** :
 6. Afficher les retours de l’API dans la GUI (succès, erreur, chargement)
 7. Organiser proprement les deux projets (`api/`, `client/`)
 
----
+![tp3](https://github.com/user-attachments/assets/24feba3d-c069-4f2c-99e4-ab38d92c1b74)
 
-## Scénario
 
-L'institution **NeoSavoir** souhaite proposer une application permettant de :
+# Scénario
+
+L'institution **TechNews** souhaite proposer une application permettant de :
 
 * Visualiser la liste des **cours offerts**
 * Ajouter de nouveaux **cours**
