@@ -32,7 +32,7 @@ Développer un système complet **client-serveur** :
 6. Afficher les retours de l’API dans la GUI (succès, erreur, chargement)
 7. Organiser proprement les deux projets (`api/`, `client/`)
 
-![tp3](https://github.com/user-attachments/assets/24feba3d-c069-4f2c-99e4-ab38d92c1b74)
+
 
 
 # Scénario
@@ -47,9 +47,10 @@ L'institution **TechNews** souhaite proposer une application permettant de :
 
 L’**API FastAPI** servira de serveur local. L’application **PySide6** consommera ses données via HTTP.
 
----
 
-## Partie 1 – API REST (FastAPI)
+<br/>
+
+# Partie 1 – API REST (FastAPI)
 
 ### Ressources à exposer
 
@@ -87,9 +88,11 @@ L’**API FastAPI** servira de serveur local. L’application **PySide6** consom
 * Pydantic pour les schémas de validation
 * Serveur lancé avec Uvicorn
 
----
+![tp3](https://github.com/user-attachments/assets/24feba3d-c069-4f2c-99e4-ab38d92c1b74)
 
-## Partie 2 – Client PySide6 (interface graphique)
+<br/>
+
+# Partie 2 – Client PySide6 (interface graphique)
 
 ### Pages attendues
 
