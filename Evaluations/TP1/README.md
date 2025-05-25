@@ -1,7 +1,7 @@
-<h1 id="table-des-matieres">Table des matières – Projet PySide6 complet</h1>
+<h1 id="table-des-matieres">Table des matières – TP1 - Projet PySide6 complet</h1>
 
-```markdown
-# Table des matières
+
+
 
 1. [Présentation du projet et architecture visée](#partie1)
 2. [Création du projet et environnement virtuel](#partie2)
