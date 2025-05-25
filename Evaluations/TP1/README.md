@@ -23,9 +23,7 @@
 18. [Organisation du projet en modules](#partie18)
 19. [Fichier de configuration externe (`config.json`)](#partie19)
 20. [Création d’un exécutable Windows avec PyInstaller](#partie20)
-```
 
----
 
 ## Liens vers les fichiers du dépôt GitHub
 
