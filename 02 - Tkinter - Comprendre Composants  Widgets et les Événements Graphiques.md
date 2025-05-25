@@ -810,7 +810,7 @@ Le bouton `"Mettre à jour"` **ne sert à rien**, car la mise à jour est déjà
 <br/>
 <br/>
 
-#  **Solution:**
+#  **Solution 1:**
 
 Si tu veux que l’utilisateur **entre du texte**, puis **appuie sur un bouton pour le transférer dans le `Label`**, il **faut séparer** les deux valeurs :
 
@@ -850,6 +850,84 @@ root.mainloop()
 
 
 <br/>
+
+
+
+
+# Solution 2 - Séparer bien les responsabilités avec StringVar
+
+Si nous voulons **absolument utiliser `StringVar`**, mais **conserver un comportement déclenché manuellement par un bouton**, alors nous devons **distinguer deux `StringVar`** :
+
+
+
+```python
+import tkinter as tk
+
+def update_label():
+    label_text.set(entry_text.get())
+
+root = tk.Tk()
+root.title("Exemple avec StringVar et mise à jour manuelle")
+
+# Deux variables séparées
+entry_text = tk.StringVar()
+label_text = tk.StringVar()
+
+# Champ d'entrée lié à entry_text
+entry = tk.Entry(root, textvariable=entry_text)
+entry.pack(pady=10)
+
+# Label lié à label_text (vide au départ)
+label = tk.Label(root, textvariable=label_text)
+label.pack()
+
+# Bouton déclencheur
+update_button = tk.Button(root, text="Mettre à jour l'étiquette", command=update_label)
+update_button.pack(pady=10)
+
+root.mainloop()
+```
+
+
+
+###  Explication :
+
+* `entry_text` contient ce que l’utilisateur tape.
+* `label_text` contient ce que le `Label` affiche.
+* Quand on clique sur le bouton, on copie la valeur de `entry_text` dans `label_text`.
+
+Ainsi, on **garde toute la logique via `StringVar`** — ce qui est très utile si tu veux profiter d’un **modèle de données observable** (ex : binding avancé ou MVC/MVVM).
+
+
+
+###  À éviter (mauvais cas d’usage) :
+
+```python
+entry = tk.Entry(root, textvariable=label_text)
+label = tk.Label(root, textvariable=label_text)
+```
+
+Cela lie **l’entrée et l’étiquette à la même variable**, donc ça rend **le bouton inutile**.
+
+
+
+## En résumé :
+
+| Objectif                         | Bonne pratique                                   |
+| -------------------------------- | ------------------------------------------------ |
+| Mise à jour automatique          | `Entry` et `Label` partagent la même `StringVar` |
+| Mise à jour manuelle avec bouton | Utiliser **deux `StringVar` distincts**          |
+
+
+
+
+
+
+
+
+
+<br/>
+
 
 
 # 16. Évènements de Clavier et de Souris
