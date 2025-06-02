@@ -62,7 +62,7 @@ if resultat:
     print("Motif détecté :", resultat.group())
 else:
     print("Aucune correspondance.")
-```python
+```
 
 #### Exemple 2 - findall
 
