@@ -40,6 +40,53 @@ else:
 > Ce code vérifie s’il existe un mot composé de lettres suivi de chiffres, comme "Université123".
 
 
+## ==> Pb: Les accents !
+
+### Correction:
+
+### Exemple 1 search
+
+```python
+import re
+
+# Texte avec lettres accentuées suivies de chiffres
+texte = "Bienvenue à Université123 et Collège456"
+
+# Motif : lettres Unicode suivies de chiffres
+motif = r"[^\W\d_]+[0-9]+"
+
+# Recherche de la première correspondance
+resultat = re.search(motif, texte, re.UNICODE)
+
+if resultat:
+    print("Motif détecté :", resultat.group())
+else:
+    print("Aucune correspondance.")
+```python
+
+#### Exemple 2 - findall
+
+```python
+import re
+
+# Texte contenant plusieurs mots lettres+chiffres
+texte = "Bienvenue à Université123 et Collège456, puis Lycée78 !"
+
+# Motif : lettres Unicode suivies de chiffres
+motif = r"[^\W\d_]+[0-9]+"
+
+# Recherche de toutes les correspondances
+resultats = re.findall(motif, texte, re.UNICODE)
+
+# Affichage
+if resultats:
+    print("Motifs détectés :", resultats)
+else:
+    print("Aucune correspondance.")
+```
+
+
+
 
 # **4. Caractères littéraux**
 
