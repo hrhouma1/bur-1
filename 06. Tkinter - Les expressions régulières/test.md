@@ -5,7 +5,7 @@
 ### Projet 3
 
 
-```html
+```python
 import re
 
 texte = "Bienvenue à Université123"
