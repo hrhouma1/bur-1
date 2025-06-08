@@ -766,5 +766,71 @@ if __name__ == "__main__":
 * Aucun gel visible : tout est dans un thread sauf l'affichage graphique final
 
 
+# Étape 9 - Comparaison de deux implémentations multi-threadées en Tkinter
+
+Vous disposez de deux codes Python :
+
+* `AppUtilisateursInteractif` : une application Tkinter qui charge une liste d’utilisateurs GitHub dans un **thread**, mais exécute certaines opérations dans le thread principal via `root.after(...)`.
+* `AppUtilisateursThread` : une application Tkinter qui charge et traite **toutes les données lourdes** (JSON + images) dans un thread secondaire, et n’utilise `root.after(...)` que pour **mettre à jour l’interface graphique**.
+
+
+
+#### **Question :**
+
+Comparez les deux implémentations en répondant aux questions suivantes :
+
+1. **Quel code provoque un blocage partiel de l’interface graphique ? Pourquoi ?**
+2. **Quel est le rôle de `root.after(...)` dans les deux programmes ?**
+3. **Expliquez pourquoi `AppUtilisateursThread` garantit une interface 100 % fluide.**
+4. **Quelle stratégie recommandez-vous pour toute application Tkinter qui doit effectuer des appels réseau ou traiter des images distantes ? Justifiez.**
+
+
+
+
+# Réponse:
+
+##  **Code `AppUtilisateursThread` – Non bloquant à 100 %**
+
+**Oui, ce code est véritablement non bloquant.**
+Tous les appels longs (requête API + téléchargement des avatars + traitement des images) sont réalisés **dans un thread secondaire**.
+
+🔹 Ce qui est bien :
+
+* L’appel à `https://api.github.com/users` se fait dans un thread.
+* Le téléchargement **de chaque avatar** (`requests.get(avatar_url)`) se fait **dans le même thread secondaire**.
+* Le traitement image `Image.open()` + `ImageTk.PhotoImage()` aussi.
+* **Seul** le rendu final avec `update_ui(...)` est envoyé via `root.after(...)`, donc sécurisé côté UI.
+
+**Conclusion** :
+ **Aucune opération lente dans le thread principal**, interface 100 % fluide.
+
+
+
+## ⚠️ **Code `AppUtilisateursInteractif` – Partiellement bloquant**
+
+**Non, ce code n’est pas totalement non bloquant.**
+Même s’il utilise un `thread`, certaines opérations lourdes sont **réinjectées dans le thread principal**, ce qui cause un **blocage partiel**.
+
+🔸 Problème identifié :
+
+* Le thread secondaire prépare les données…
+* Mais ensuite, toute la logique `requests.get(avatar_url)` + traitement d’image `Image.open(...)` est exécutée **dans une lambda passée à `root.after(...)`**, donc dans **le thread principal**.
+
+**Conséquence** :
+⛔️ Lors du traitement de plusieurs avatars, le **thread UI est bloqué temporairement**, causant un léger gel (notamment observable avec un bouton "Compter").
+
+
+
+##  Comparatif résumé
+
+| Aspect technique                                          | `AppUtilisateursThread` | `AppUtilisateursInteractif`            |
+| --------------------------------------------------------- | ----------------------- | -------------------------------------- |
+| Requête API (JSON) dans un thread secondaire              | ✅                       | ✅                                      |
+| Téléchargement des avatars dans thread secondaire         | ✅                       | ❌ *(fait dans root.after)*             |
+| Traitement PIL.Image dans un thread secondaire            | ✅                       | ❌                                      |
+| Appels à `root.after(...)` limités au strict affichage UI | ✅                       | ❌ *(trop de logique dans le mainloop)* |
+| Blocage temporaire visible                                | ❌                       | ✅ *(UI gèle pendant l'affichage)*      |
+| 100 % fluide même pendant chargement                      | ✅                       | ❌                                      |
+
 
 
