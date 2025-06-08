@@ -272,5 +272,62 @@ if __name__ == "__main__":
 4. Essaie de recliquer sur **"Compter"** → **l’interface est figée** jusqu’à la fin du chargement des avatars.
 
 
+<br/>
+
+# Étape 6 - Ajout d'un thread
+
+
+
+
+
+
+**Réponse courte :**
+Oui, **ce code est *partiellement bloquant*** — il utilise un `thread` pour éviter de bloquer **la requête API principale**, **mais il reste une zone critique bloquante** : le **téléchargement des avatars** est exécuté dans **le thread principal**, via `root.after(...)`.
+
+
+
+##  Détails techniques :
+
+###  Ce qui est bien :
+
+* Tu exécutes `fetch_and_prepare_data()` dans un `thread`, ce qui évite de bloquer l’UI pendant l’appel à `https://api.github.com/users`.
+
+### ❌ Ce qui bloque encore :
+
+* Tu appelles **dans le thread principal** (via `root.after`) une fonction qui :
+
+  ```python
+  requests.get(avatar_url)
+  Image.open(...)
+  ImageTk.PhotoImage(...)
+  ```
+
+  Donc, **le téléchargement et le traitement d’images se fait dans le thread principal**, ce qui **bloque l’interface quelques millisecondes par avatar** (et c’est visible si tu en charges plusieurs).
+
+
+
+## Diagnostic simple :
+
+> Oui, la requête JSON (la liste des utilisateurs) est bien **non bloquante**
+> Mais les appels `requests.get(avatar_url)` (pour charger les images) sont **encore bloquants** car **effectués dans le thread principal** via `root.after`.
+
+
+
+##  Test à faire :
+
+1. Lance l’app
+2. Clique sur **"Charger les utilisateurs"**
+3. Clique rapidement sur **"Compter"**
+4. Tu vas constater que :
+
+   * le compteur fonctionne pendant l’appel initial à l’API
+   * puis **ralentit ou se fige pendant quelques instants**, au fur et à mesure du chargement des avatars.
+
+
+##  Pour le corriger complètement :
+
+Déplace **toute la logique de téléchargement des avatars et de `Image.open(...)`** dans le thread secondaire, **puis seulement les `ttk.Label(...)` dans `root.after()`**.
+
+
 
 
