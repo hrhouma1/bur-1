@@ -573,10 +573,7 @@ if __name__ == "__main__":
 
 > En exécutant l'application, vous pensez que le problème est résolu ?
 
-
-
-
-**Réponse courte :**
+**Réponse :**
 Oui, **ce code est *partiellement bloquant*** — il utilise un `thread` pour éviter de bloquer **la requête API principale**, **mais il reste une zone critique bloquante** : le **téléchargement des avatars** est exécuté dans **le thread principal**, via `root.after(...)`.
 
 
@@ -627,18 +624,15 @@ Déplace **toute la logique de téléchargement des avatars et de `Image.open(..
 
 <br/>
 
-# Étape 8 - Ajout d'un thread
+# Étape 8 - Version finale 
 
-
-
-
-Voici maintenant la **version corrigée à 100 %**, où :
+- Voici maintenant la **version corrigée à 100 %**, où :
 
 * **Toute** la logique lente (requêtes JSON **et** avatars, traitement d’images) est exécutée dans un **thread secondaire**
 * Seul l’appel à `update_ui(...)` est exécuté dans le thread principal via `root.after(...)`
 * L’interface Tkinter reste **parfaitement fluide du début à la fin**
 
----
+
 
 ## ✅ Code final non bloquant – `app.py`
 
@@ -757,7 +751,7 @@ if __name__ == "__main__":
     root.mainloop()
 ```
 
----
+
 
 ## ✅ Résultat attendu
 
@@ -765,6 +759,8 @@ if __name__ == "__main__":
 * Le bouton **"Compter"** fonctionne parfaitement **même pendant tout le chargement**
 * Aucun gel visible : tout est dans un thread sauf l'affichage graphique final
 
+<br/>
+<br/>
 
 # Étape 9 - Comparaison de deux implémentations multi-threadées en Tkinter
 
