@@ -131,3 +131,13 @@ if __name__ == "__main__":
 * Bouton pour lancer la requête
 * Gestion des erreurs via `messagebox`
 
+
+# Question : 
+
+
+
+
+
+Dans une application Tkinter, toutes les actions (affichage, clics, redimensionnement, etc.) sont gérées par une **boucle principale appelée "mainloop"**, qui tourne sur **un seul thread**. Lorsque vous effectuez une opération longue ou bloquante dans ce même thread – comme une **requête réseau avec `requests.get()`** – Tkinter **interrompt temporairement l’affichage**, car il attend la fin de cette opération avant de reprendre le contrôle de l’interface. Cela signifie que l'utilisateur ne peut ni interagir avec la fenêtre, ni voir les changements (comme une animation de chargement) tant que la requête n’est pas terminée. C’est ce qu’on appelle un **blocage de l’interface utilisateur (UI freeze)**. Pour éviter cela, il est nécessaire d’exécuter les appels réseau dans un **thread séparé** ou via des techniques asynchrones afin que l'interface reste réactive.
+
+
