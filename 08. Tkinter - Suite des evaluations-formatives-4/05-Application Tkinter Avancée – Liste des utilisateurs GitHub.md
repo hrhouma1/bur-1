@@ -272,6 +272,157 @@ if __name__ == "__main__":
 4. Essaie de recliquer sur **"Compter"** → **l’interface est figée** jusqu’à la fin du chargement des avatars.
 
 
+
+
+
+<br/>
+
+
+
+
+
+## ✅ Code avec compteur interactif (et blocage partiel démontrable)
+
+```python
+import tkinter as tk
+from tkinter import ttk, messagebox
+import requests
+from io import BytesIO
+from PIL import Image, ImageTk
+import threading
+
+class AppUtilisateursInteractif:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Utilisateurs GitHub – Démo Blocage Partiel")
+        self.root.geometry("600x600")
+
+        self.frame = ttk.Frame(root, padding=10)
+        self.frame.pack(fill=tk.BOTH, expand=True)
+
+        # Bouton pour charger
+        self.btn_charger = ttk.Button(self.frame, text="Charger les utilisateurs", command=self.lancer_requete)
+        self.btn_charger.pack(pady=5)
+
+        # Compteur interactif
+        self.compteur = 0
+        self.btn_compter = ttk.Button(self.frame, text="Compter", command=self.incremente_compteur)
+        self.btn_compter.pack(pady=5)
+
+        self.label_compteur = ttk.Label(self.frame, text="Compteur : 0")
+        self.label_compteur.pack(pady=5)
+
+        # Zone scrollable
+        self.canvas = tk.Canvas(self.frame)
+        self.scrollbar = ttk.Scrollbar(self.frame, orient="vertical", command=self.canvas.yview)
+        self.scrollable_frame = ttk.Frame(self.canvas)
+
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        )
+
+        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+
+        self.canvas.pack(side="left", fill="both", expand=True)
+        self.scrollbar.pack(side="right", fill="y")
+
+        self.label_status = ttk.Label(self.frame, text="")
+        self.label_status.pack(pady=5)
+
+        self.photos = []
+
+    def incremente_compteur(self):
+        self.compteur += 1
+        self.label_compteur.config(text=f"Compteur : {self.compteur}")
+
+    def lancer_requete(self):
+        thread = threading.Thread(target=self.fetch_and_prepare_data)
+        thread.start()
+
+    def fetch_and_prepare_data(self):
+        self.root.after(0, lambda: self.label_status.config(text="Chargement..."))
+        self.root.after(0, lambda: self.clear_users())
+        url = "https://api.github.com/users"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+            users = response.json()
+
+            prepared = []
+
+            for user in users:
+                login = user['login']
+                html_url = user['html_url']
+                avatar_url = user['avatar_url']
+
+                avatar_response = requests.get(avatar_url, timeout=10)
+                avatar_image = Image.open(BytesIO(avatar_response.content)).resize((50, 50))
+                avatar_photo = ImageTk.PhotoImage(avatar_image)
+
+                prepared.append({
+                    'login': login,
+                    'html_url': html_url,
+                    'photo': avatar_photo
+                })
+
+            self.root.after(0, lambda: self.update_ui(prepared))
+
+        except requests.exceptions.RequestException as e:
+            self.root.after(0, lambda: self.label_status.config(text="Erreur lors du chargement."))
+            self.root.after(0, lambda: messagebox.showerror("Erreur", str(e)))
+
+    def update_ui(self, users):
+        for user in users:
+            frame = ttk.Frame(self.scrollable_frame, padding=5)
+            frame.pack(fill=tk.X, pady=2)
+
+            self.photos.append(user['photo'])
+            avatar_label = ttk.Label(frame, image=user['photo'])
+            avatar_label.pack(side=tk.LEFT)
+
+            info = f"{user['login']} - {user['html_url']}"
+            label = ttk.Label(frame, text=info, wraplength=400, justify="left")
+            label.pack(side=tk.LEFT, padx=10)
+
+        self.label_status.config(text=f"{len(users)} utilisateurs chargés.")
+
+    def clear_users(self):
+        for widget in self.scrollable_frame.winfo_children():
+            widget.destroy()
+        self.photos.clear()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AppUtilisateursInteractif(root)
+    root.mainloop()
+```
+
+
+
+##  À tester
+
+1. Clique sur **"Charger les utilisateurs"**
+2. Pendant le chargement, clique rapidement sur **"Compter"**
+3. Tu verras :
+
+   * Le compteur **fonctionne** au début (chargement JSON)
+   * Il **ralentit ou fige temporairement** pendant les **téléchargements et affichage d’avatars**
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br/>
 
 # Étape 6 - Ajout d'un thread
