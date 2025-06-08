@@ -632,3 +632,139 @@ Déplace **toute la logique de téléchargement des avatars et de `Image.open(..
 
 
 
+Voici maintenant la **version corrigée à 100 %**, où :
+
+* **Toute** la logique lente (requêtes JSON **et** avatars, traitement d’images) est exécutée dans un **thread secondaire**
+* Seul l’appel à `update_ui(...)` est exécuté dans le thread principal via `root.after(...)`
+* L’interface Tkinter reste **parfaitement fluide du début à la fin**
+
+---
+
+## ✅ Code final non bloquant – `app.py`
+
+```python
+import tkinter as tk
+from tkinter import ttk, messagebox
+import requests
+from io import BytesIO
+from PIL import Image, ImageTk
+import threading
+
+class AppUtilisateursThread:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Utilisateurs GitHub – Non bloquant 100 %")
+        self.root.geometry("600x600")
+
+        self.frame = ttk.Frame(root, padding=10)
+        self.frame.pack(fill=tk.BOTH, expand=True)
+
+        self.btn_charger = ttk.Button(self.frame, text="Charger les utilisateurs", command=self.lancer_thread)
+        self.btn_charger.pack(pady=5)
+
+        self.compteur = 0
+        self.btn_compter = ttk.Button(self.frame, text="Compter", command=self.incrementer)
+        self.btn_compter.pack(pady=5)
+        self.label_compteur = ttk.Label(self.frame, text="Compteur : 0")
+        self.label_compteur.pack(pady=5)
+
+        self.canvas = tk.Canvas(self.frame)
+        self.scrollbar = ttk.Scrollbar(self.frame, orient="vertical", command=self.canvas.yview)
+        self.scrollable_frame = ttk.Frame(self.canvas)
+
+        self.scrollable_frame.bind(
+            "<Configure>",
+            lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all"))
+        )
+
+        self.canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
+        self.canvas.configure(yscrollcommand=self.scrollbar.set)
+
+        self.canvas.pack(side="left", fill="both", expand=True)
+        self.scrollbar.pack(side="right", fill="y")
+
+        self.label_status = ttk.Label(self.frame, text="")
+        self.label_status.pack(pady=5)
+
+        self.photos = []
+
+    def incrementer(self):
+        self.compteur += 1
+        self.label_compteur.config(text=f"Compteur : {self.compteur}")
+
+    def lancer_thread(self):
+        thread = threading.Thread(target=self.fetch_all_in_thread)
+        thread.start()
+
+    def fetch_all_in_thread(self):
+        self.root.after(0, lambda: self.label_status.config(text="Chargement..."))
+        self.root.after(0, self.clear_users)
+
+        url = "https://api.github.com/users"
+
+        try:
+            response = requests.get(url, timeout=10)
+            response.raise_for_status()
+            users = response.json()
+
+            prepared = []
+
+            for user in users:
+                login = user['login']
+                html_url = user['html_url']
+                avatar_url = user['avatar_url']
+
+                avatar_response = requests.get(avatar_url, timeout=10)
+                avatar_image = Image.open(BytesIO(avatar_response.content)).resize((50, 50))
+                avatar_photo = ImageTk.PhotoImage(avatar_image)
+
+                prepared.append({
+                    'login': login,
+                    'html_url': html_url,
+                    'photo': avatar_photo
+                })
+
+            self.root.after(0, lambda: self.update_ui(prepared))
+
+        except requests.exceptions.RequestException as e:
+            self.root.after(0, lambda: self.label_status.config(text="Erreur réseau."))
+            self.root.after(0, lambda: messagebox.showerror("Erreur", str(e)))
+
+    def update_ui(self, users):
+        self.clear_users()
+        for user in users:
+            frame = ttk.Frame(self.scrollable_frame, padding=5)
+            frame.pack(fill=tk.X, pady=2)
+
+            self.photos.append(user['photo'])  # garder référence
+            avatar_label = ttk.Label(frame, image=user['photo'])
+            avatar_label.pack(side=tk.LEFT)
+
+            info = f"{user['login']} - {user['html_url']}"
+            label = ttk.Label(frame, text=info, wraplength=400, justify="left")
+            label.pack(side=tk.LEFT, padx=10)
+
+        self.label_status.config(text=f"{len(users)} utilisateurs chargés.")
+
+    def clear_users(self):
+        for widget in self.scrollable_frame.winfo_children():
+            widget.destroy()
+        self.photos.clear()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AppUtilisateursThread(root)
+    root.mainloop()
+```
+
+---
+
+## ✅ Résultat attendu
+
+* Interface **fluide et réactive**
+* Le bouton **"Compter"** fonctionne parfaitement **même pendant tout le chargement**
+* Aucun gel visible : tout est dans un thread sauf l'affichage graphique final
+
+
+
+
