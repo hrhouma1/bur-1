@@ -256,8 +256,8 @@ if __name__ == "__main__":
 
 ## 📁 Fichier `README.md` attendu
 
-```markdown
-# Examen national – APIs publiques avec Python
+
+# Examen – APIs publiques avec Python
 
 ## APIs utilisées
 
