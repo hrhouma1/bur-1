@@ -63,15 +63,140 @@ Affichez le nom et le courriel des utilisateurs.
 
 Essayez de faire 10 appels à l’API `https://api.quotable.io/random` avec `requests` et avec `aiohttp`, puis mesurez le **temps d’exécution total** avec `time.time()` pour comparer les performances.
 
+
+
+<br/>
+
+<br/>
+
+
+
+
+
+## <h1 id="correction-api-libs">Correction – Consommation d’API avec bibliothèques synchrones et asynchrones en Python</h1>
+
+
+
+### <h2 id="partie1-requests">Partie 1 – Requête GET avec `requests` (synchrone)</h2>
+
+```python
+# fichier : get_users_requests.py
+
+import requests
+
+def fetch_users():
+    url = "https://jsonplaceholder.typicode.com/users"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        for user in data:
+            print(f"Nom : {user['name']} | Email : {user['email']}")
+    else:
+        print("Erreur lors de l'appel API")
+
+if __name__ == "__main__":
+    fetch_users()
+```
+
+
+
+### <h2 id="partie2-aiohttp">Partie 2 – Requête GET avec `aiohttp` (asynchrone)</h2>
+
+```python
+# fichier : get_users_aiohttp.py
+
+import aiohttp
+import asyncio
+
+async def fetch_users():
+    url = "https://jsonplaceholder.typicode.com/users"
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            if response.status == 200:
+                data = await response.json()
+                for user in data:
+                    print(f"Nom : {user['name']} | Email : {user['email']}")
+            else:
+                print("Erreur lors de l'appel API")
+
+if __name__ == "__main__":
+    asyncio.run(fetch_users())
+```
+
+
+
+### <h2 id="partie3-comparaison">Partie 3 – Comparaison</h2>
+
+| Critère                         | `requests`                     | `aiohttp`                              |
+| ------------------------------- | ------------------------------ | -------------------------------------- |
+| Simplicité d’usage              | Très simple (1 ligne pour GET) | Moins simple (nécessite async/await)   |
+| Contexte                        | Idéal pour appels simples      | Idéal pour appels multiples/parallèles |
+| Support async                   | Non                            | Oui (natif)                            |
+| Performance (beaucoup d'appels) | Plus lent                      | Plus rapide                            |
+
 ---
 
-### <h2 id="correction-souhaitee">Souhaitez-vous la correction ?</h2>
+### <h2 id="bonus-performance">Bonus – Performance : 10 appels `GET`</h2>
 
-Je peux vous fournir :
+#### 🟩 Version `requests` (synchronisée, séquentielle)
 
-* Un script complet `requests` (partie 1)
-* Un script complet `aiohttp` (partie 2)
-* Un exemple de comparaison (partie 3)
-* Une mesure du temps pour la partie bonus
+```python
+# fichier : multi_requests.py
+import requests
+import time
+
+def fetch_multiple():
+    start = time.time()
+    for i in range(10):
+        response = requests.get("https://api.quotable.io/random")
+        if response.status_code == 200:
+            data = response.json()
+            print(f"{i+1}. {data['content']} — {data['author']}")
+    end = time.time()
+    print(f"Durée totale (requests) : {end - start:.2f} sec")
+
+if __name__ == "__main__":
+    fetch_multiple()
+```
+
+---
+
+#### 🟦 Version `aiohttp` (asynchrone, concurrente)
+
+```python
+# fichier : multi_aiohttp.py
+import aiohttp
+import asyncio
+import time
+
+async def fetch_quote(session, i):
+    url = "https://api.quotable.io/random"
+    async with session.get(url) as response:
+        if response.status == 200:
+            data = await response.json()
+            print(f"{i+1}. {data['content']} — {data['author']}")
+
+async def main():
+    start = time.time()
+    async with aiohttp.ClientSession() as session:
+        tasks = [fetch_quote(session, i) for i in range(10)]
+        await asyncio.gather(*tasks)
+    end = time.time()
+    print(f"Durée totale (aiohttp) : {end - start:.2f} sec")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+---
+
+### <h2 id="resultats-performance">Résultats typiques de comparaison</h2>
+
+| Méthode    | Durée pour 10 requêtes |
+| ---------- | ---------------------- |
+| `requests` | \~8 à 10 secondes      |
+| `aiohttp`  | \~1 à 2 secondes       |
+
+
 
 
