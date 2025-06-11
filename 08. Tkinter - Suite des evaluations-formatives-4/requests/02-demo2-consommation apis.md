@@ -145,3 +145,4 @@ Choisissez **deux** des APIs utilisées plus haut et répondez :
   * Une capture d’écran ou exemple de sortie
   * Vos réponses à la question 7 (analyse)
 
+
