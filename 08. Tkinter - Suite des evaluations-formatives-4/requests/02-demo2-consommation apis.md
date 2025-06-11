@@ -91,9 +91,6 @@ Utilisez l’API RestCountries v3 :
 * Affichez la citation et son auteur
 * Relancer cette requête 3 fois
 
-<br/­>
-
-<br/­>
 
 <h2 id="partie-5-api-meteo">Partie 5 – API météo (simulation)</h2>
 
@@ -125,7 +122,7 @@ Utilisez l’API RestCountries v3 :
 
 
 
-<br /­>
+
 
 <h2 id="partie-7-analyse">Partie 7 – Mini-analyse</h2>
 
