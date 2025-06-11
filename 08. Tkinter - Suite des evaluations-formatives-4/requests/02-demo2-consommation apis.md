@@ -10,7 +10,7 @@ Vous êtes chargé de créer un petit outil d’exploration d’APIs ouvertes. T
 * Gérer les erreurs de réponse
 * Utiliser une API externe sans authentification (ou avec clé publique si fournie)
 
-
+---
 
 <h2 id="instructions-generales">Instructions générales</h2>
 
@@ -20,7 +20,7 @@ Vous êtes chargé de créer un petit outil d’exploration d’APIs ouvertes. T
 * Utilisez `json.dumps(..., indent=2)` si nécessaire pour l’affichage.
 
 
-
+---
 
 <h2 id="partie-1-etude-api">Partie 1 – Étude d'une API de données publiques</h2>
 
@@ -41,9 +41,8 @@ Utilisez l’API suivante :
 
 **Bonus :** Affichez le nombre total d’établissements.
 
-<br/­>
 
-<br/­>
+---
 
 <h2 id="partie-2-analyse-et-filtrage">Partie 2 – Analyse et filtrage de données</h2>
 
@@ -62,7 +61,7 @@ Utilisez l’API RestCountries v3 :
   * Population
 
 
-
+---
 
 <h2 id="partie-3-integration-avec-une-api-fictive">Partie 3 – Simulation de forum</h2>
 
@@ -79,6 +78,7 @@ Utilisez l’API RestCountries v3 :
   * Le contenu (`body`)
 * Affichez le nombre total de commentaires reçus
 
+---
 
 <h2 id="partie-4-api-citation">Partie 4 – API de citation</h2>
 
@@ -91,6 +91,7 @@ Utilisez l’API RestCountries v3 :
 * Affichez la citation et son auteur
 * Relancer cette requête 3 fois
 
+---
 
 <h2 id="partie-5-api-meteo">Partie 5 – API météo (simulation)</h2>
 
@@ -108,7 +109,7 @@ Utilisez l’API RestCountries v3 :
 
 **Remarque :** remplacez `YOUR_API_KEY` par une clé valide si vous en avez une. Sinon, commentez la partie.
 
-
+---
 
 <h2 id="partie-6-api-crypto">Partie 6 – Prix du Bitcoin</h2>
 
@@ -122,7 +123,7 @@ Utilisez l’API RestCountries v3 :
 
 
 
-
+---
 
 <h2 id="partie-7-analyse">Partie 7 – Mini-analyse</h2>
 
@@ -134,7 +135,7 @@ Choisissez **deux** des APIs utilisées plus haut et répondez :
 * Laquelle a la structure de données la plus complexe ?
 * Y avait-il des erreurs ou des pièges particuliers ?
 
-
+---
 
 <h2 id="livrables">Livrables</h2>
 
@@ -216,7 +217,7 @@ if __name__ == "__main__":
 
 
 
-<br/>
+---
 
 
 
@@ -274,7 +275,7 @@ if __name__ == "__main__":
 
 
 
-<br/>
+----
 
 
 
@@ -353,7 +354,7 @@ pip install pillow
 
 
 
-<br/>
+---
 
 
 
@@ -407,7 +408,7 @@ if __name__ == "__main__":
 
 
 
-###  Explications pédagogiques
+###  Explications
 
 * Une boucle `for` permet de faire 5 appels successifs à l’API.
 * Utilisation d’une **liste `faits`** pour stocker les réponses et les sauvegarder.
@@ -415,7 +416,7 @@ if __name__ == "__main__":
 * Le script est robuste aux erreurs (réseau, fichier, etc.).
 
 
-<br/>
+---
 
 
 
@@ -476,7 +477,7 @@ if __name__ == "__main__":
 
 
 
-<br/>
+---
 
 
 
@@ -551,7 +552,7 @@ if __name__ == "__main__":
 
 
 
-<br/>
+----
 
 
 ## <h2 id="corr-exo7">Correction – Exercice 7 : Établissements publics d’un département</h2>
@@ -606,7 +607,7 @@ if __name__ == "__main__":
         print("Erreur inattendue :", e)
 ```
 
-
+---
 
 ###  Explications 
 
