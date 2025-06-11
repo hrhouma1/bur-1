@@ -1,4 +1,4 @@
-<h1 id="examen-api-python">Exercice 2 – Consommation d’APIs publiques avec Python</h1>
+<h1 id="examen-api-python">Démo 2 – Consommation d’APIs publiques avec Python</h1>
 
 <h2 id="contexte">Contexte</h2>
 
