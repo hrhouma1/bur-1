@@ -2,7 +2,7 @@
 
 <h2 id="contexte">Contexte</h2>
 
-Vous êtes chargé(e) de créer un petit outil d’exploration d’APIs ouvertes. Toutes les APIs sont publiques et accessibles en lecture seule. Vous utiliserez exclusivement la méthode HTTP `GET`. L’examen vise à valider les compétences suivantes :
+Vous êtes chargé de créer un petit outil d’exploration d’APIs ouvertes. Toutes les APIs sont publiques et accessibles en lecture seule. Vous utiliserez exclusivement la méthode HTTP `GET`. L’examen vise à valider les compétences suivantes :
 
 * Savoir faire une requête GET avec `requests`
 * Analyser une réponse JSON
