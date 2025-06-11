@@ -19,7 +19,8 @@ Vous êtes chargé(e) de créer un petit outil d’exploration d’APIs ouvertes
 * Gérez les cas d’erreur (codes autres que 200, absence de clé, etc.).
 * Utilisez `json.dumps(..., indent=2)` si nécessaire pour l’affichage.
 
-
+<br/­>
+<br/­>
 
 <h2 id="partie-1-etude-api">Partie 1 – Étude d'une API de données publiques</h2>
 
@@ -40,7 +41,8 @@ Utilisez l’API suivante :
 
 **Bonus :** Affichez le nombre total d’établissements.
 
-
+<br/­>
+<br/­>
 
 <h2 id="partie-2-analyse-et-filtrage">Partie 2 – Analyse et filtrage de données</h2>
 
@@ -59,6 +61,8 @@ Utilisez l’API RestCountries v3 :
   * Population
 
 
+<br/­>
+<br/­>
 
 <h2 id="partie-3-integration-avec-une-api-fictive">Partie 3 – Simulation de forum</h2>
 
@@ -75,7 +79,8 @@ Utilisez l’API RestCountries v3 :
   * Le contenu (`body`)
 * Affichez le nombre total de commentaires reçus
 
-
+<br/­>
+<br/­>
 
 <h2 id="partie-4-api-citation">Partie 4 – API de citation</h2>
 
@@ -88,7 +93,8 @@ Utilisez l’API RestCountries v3 :
 * Affichez la citation et son auteur
 * Relancer cette requête 3 fois
 
-
+<br/­>
+<br/­>
 
 <h2 id="partie-5-api-meteo">Partie 5 – API météo (simulation)</h2>
 
@@ -106,7 +112,8 @@ Utilisez l’API RestCountries v3 :
 
 **Remarque :** remplacez `YOUR_API_KEY` par une clé valide si vous en avez une. Sinon, commentez la partie.
 
-
+<br/­>
+<br/­>
 
 <h2 id="partie-6-api-crypto">Partie 6 – Prix du Bitcoin</h2>
 
@@ -118,7 +125,8 @@ Utilisez l’API RestCountries v3 :
 
 * Affichez le prix actuel du Bitcoin en CAD
 
-
+<br/­>
+<br/­>
 
 <h2 id="partie-7-analyse">Partie 7 – Mini-analyse</h2>
 
@@ -130,7 +138,8 @@ Choisissez **deux** des APIs utilisées plus haut et répondez :
 * Laquelle a la structure de données la plus complexe ?
 * Y avait-il des erreurs ou des pièges particuliers ?
 
-
+<br/­>
+<br/­>
 
 <h2 id="livrables">Livrables</h2>
 
