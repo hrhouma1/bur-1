@@ -1,0 +1,265 @@
+<h1 id="intro">Introduction générale</h1>
+
+Ce cours est une introduction complète à la création d’interfaces graphiques avec **Qt Designer** et **PySide6**. Il s’adresse aux débutants souhaitant comprendre :
+
+* La différence entre **PySide6** et **Qt Designer**
+* La relation entre **PySide6** et **PyQt**
+* Les composants graphiques appelés **widgets**
+* L’architecture typique d’une application Qt
+* La gestion des **événements** et des **slots**
+
+---
+
+<h1 id="qt-designer-vs-pyside6">1. Qt Designer vs PySide6</h1>
+
+| Qt Designer                                             | PySide6 (code Python)                                       |
+| ------------------------------------------------------- | ----------------------------------------------------------- |
+| Outil visuel pour créer des interfaces (fichiers `.ui`) | Bibliothèque Python pour manipuler Qt (équivalent à C++ Qt) |
+| Glisser-déposer de widgets                              | Contrôle programmatique des widgets                         |
+| Produit un fichier `.ui` XML                            | Utilise du Python pur (ou convertit le `.ui`)               |
+| Pas de logique métier                                   | Toute la logique (comportement, traitement)                 |
+
+**En résumé** : Qt Designer sert à concevoir **visuellement** l’interface. PySide6 permet de **contrôler, afficher, modifier** et **connecter les événements** de cette interface avec du code Python.
+
+---
+
+<h1 id="pyside6-vs-pyqt">2. PySide6 vs PyQt</h1>
+
+| Caractéristique   | PySide6                          | PyQt6                      |
+| ----------------- | -------------------------------- | -------------------------- |
+| Éditeur principal | Maintenu par Qt (The Qt Company) | Maintenu par Riverbank     |
+| Licence           | LGPL (ouverte)                   | GPL ou licence commerciale |
+| API               | Très proche                      | Très proche                |
+| Syntaxe           | Presque identique                | Presque identique          |
+
+**Conclusion** : Ce sont deux bindings Python vers Qt6. Pour un usage libre et ouvert, PySide6 est souvent privilégié.
+
+---
+
+<h1 id="structure-app">3. Structure d'une application Qt</h1>
+
+```python
+from PySide6.QtWidgets import QApplication, QWidget
+
+app = QApplication(sys.argv)   # Démarrage de l’application Qt
+window = QWidget()             # Création d'une fenêtre vide
+window.show()                  # Affichage de la fenêtre
+app.exec()                     # Lancement de la boucle événementielle
+```
+
+* `QApplication` : représente l'application globale
+* `QWidget` ou `QMainWindow` : représente la fenêtre
+* `.show()` : rend visible
+* `.exec()` : démarre la boucle événementielle (indispensable)
+
+---
+
+<h1 id="composants-widgets">4. Les composants de base (Widgets)</h1>
+
+Exemples :
+
+| Widget        | Description                       |
+| ------------- | --------------------------------- |
+| `QPushButton` | Bouton sur lequel on peut cliquer |
+| `QLabel`      | Affichage de texte                |
+| `QLineEdit`   | Champ de saisie                   |
+| `QTextEdit`   | Zone de texte multi-lignes        |
+| `QCheckBox`   | Case à cocher                     |
+| `QComboBox`   | Menu déroulant                    |
+| `QGroupBox`   | Conteneur logique                 |
+
+**Organisation parent-enfant :**
+
+* Un `QGroupBox` peut contenir des `QLabel`, `QLineEdit`, etc.
+* Cela structure visuellement et logiquement l’interface.
+
+---
+
+<h1 id="evenements-slots">5. Événements et slots</h1>
+
+* **Événement** = ce que l’utilisateur fait (cliquer, taper)
+* **Slot** = ce que votre programme fait en réponse
+
+Exemple simple de connexion :
+
+```python
+def dire_bonjour():
+    print("Bonjour")
+
+button.clicked.connect(dire_bonjour)
+```
+
+* `.clicked` : signal émis par Qt
+* `.connect()` : relie à une fonction Python (le "slot")
+
+---
+
+<h1 id="architecture-generale">6. Architecture typique d’un projet Qt</h1>
+
+**Sans Qt Designer :**
+
+```
+main.py
+```
+
+**Avec Qt Designer :**
+
+```
+interface.ui       # fichier graphique XML
+main.py            # logique Python
+```
+
+Et on convertit :
+
+```bash
+pyside6-uic interface.ui -o ui_interface.py
+```
+
+Puis on l'importe :
+
+```python
+from ui_interface import Ui_Form
+```
+
+
+<br/>
+<br/>
+
+
+# Annexe 1 - Qu'est-ce que **Qt6** ?
+
+**Qt6** est la **sixième génération** de la bibliothèque **Qt**, un framework **multiplateforme** conçu pour créer des interfaces graphiques (GUI) ainsi que des applications robustes, multiplateformes et orientées objets.
+
+
+
+<h2 id="definition">1. Définition</h2>
+
+**Qt** est écrit en **C++**, mais il existe des *bindings* pour d'autres langages comme :
+
+* **PyQt** et **PySide** pour **Python**
+* **Qt Jambi** pour Java
+* etc.
+
+**Qt6**, sorti fin 2020, est la **version majeure** qui succède à Qt5, avec des améliorations importantes dans :
+
+* la gestion de l’affichage (rendu graphique moderne)
+* les performances
+* le support multi-écrans, haute résolution, 3D
+* la modularité du framework
+* la compatibilité avec **C++20**
+
+---
+
+<h2 id="modules">2. Modules principaux de Qt6</h2>
+
+Qt6 est composé de nombreux modules (certains optionnels), par exemple :
+
+| Module Qt      | Utilité principale                                   |
+| -------------- | ---------------------------------------------------- |
+| `QtCore`       | Base non graphique (fichiers, dates, threads…)       |
+| `QtGui`        | Dessin, polices, gestion des images                  |
+| `QtWidgets`    | Composants d’interface classiques (boutons, champs…) |
+| `QtQuick`      | Interface moderne avec QML (markup orienté design)   |
+| `QtMultimedia` | Audio, vidéo                                         |
+| `QtNetwork`    | Communications réseau                                |
+| `QtCharts`     | Graphiques, courbes                                  |
+
+---
+
+<h2 id="qt6-vs-qt5">3. Qt6 vs Qt5 : Qu’est-ce qui change ?</h2>
+
+| Évolution Qt6                              | Qt5                           |
+| ------------------------------------------ | ----------------------------- |
+| Rendu graphique moderne (RHI)              | OpenGL classique              |
+| Meilleur support multi-plateforme          | Plus rigide                   |
+| Code plus modulaire                        | Plus monolithique             |
+| Meilleure intégration avec C++20           | Support C++11/14/17           |
+| Migration requiert parfois des adaptations | Qt5 plus stable en entreprise |
+
+---
+
+<h2 id="pyside6">4. Et PySide6 dans tout ça ?</h2>
+
+* **PySide6** est le **binding Python officiel** de Qt6.
+* Il permet de **contrôler Qt6 avec Python** plutôt qu’avec C++.
+* Il expose les mêmes modules : `QtWidgets`, `QtCore`, etc.
+
+Par exemple :
+
+```python
+from PySide6.QtWidgets import QApplication, QPushButton
+```
+
+Ce code Python crée un bouton Qt6… sans jamais écrire une ligne de C++.
+
+
+
+
+<br/>
+<br/>
+
+
+# Annexe 2 - <h1 id="definition-binding">1. Qu’est-ce qu’un *binding* ?</h1>
+
+Un **binding** (ou "liaison") est un **pont entre un langage de programmation et une bibliothèque écrite dans un autre langage**.
+
+Dans notre cas :
+
+* **Qt6** est une bibliothèque puissante… mais écrite en **C++**
+* Python **ne comprend pas le C++** directement
+* Il faut donc un **"binding" Python** qui **traduit les objets Qt (C++) en objets Python**
+
+### Métaphore simple
+
+Imagine que Qt6 parle **C++** et que Python parle **Python**.
+Un **binding**, c’est comme un **interprète** qui permet aux deux de communiquer.
+
+---
+
+<h1 id="pyside-vs-pyqt">2. PySide6 vs PyQt6</h1>
+
+Ce sont **deux bindings** (donc deux "traductions Python") pour Qt6 :
+
+| Caractéristique       | **PySide6**                           | **PyQt6**                                       |
+| --------------------- | ------------------------------------- | ----------------------------------------------- |
+| Éditeur               | **The Qt Company** (officiel)         | Riverbank Computing (indépendant)               |
+| Licence               | **LGPL** (libre)                      | GPL (libre mais plus restrictif) ou commerciale |
+| Compatibilité Qt      | Qt6 (officiel)                        | Qt6 aussi                                       |
+| Syntaxe               | Presque identique                     | Presque identique                               |
+| Popularité académique | Recommandée pour projets pédagogiques | Très populaire historiquement                   |
+
+### Exemple commun (valide pour les deux) :
+
+```python
+from PySide6.QtWidgets import QApplication, QPushButton
+# ou
+from PyQt6.QtWidgets import QApplication, QPushButton
+```
+
+👉 Les deux lignes ci-dessus font **exactement la même chose** : créer une fenêtre avec un bouton.
+
+---
+
+<h1 id="conclusion">3. En résumé</h1>
+
+| Concept     | Description                                                       |
+| ----------- | ----------------------------------------------------------------- |
+| **Qt**      | Bibliothèque d’interface graphique (en C++)                       |
+| **Binding** | Pont entre Qt (C++) et Python                                     |
+| **PySide6** | Binding officiel, libre, recommandé par Qt Company                |
+| **PyQt6**   | Binding alternatif, très proche, mais sous licence GPL ou payante |
+
+---
+
+<h1 id="recommandation">4. Quelle version utiliser en cours ?</h1>
+
+Pour un usage **éducatif, libre, légal et durable**, il est **fortement recommandé d’utiliser PySide6**, car :
+
+* Il est **officiel**
+* Il est **libre** (LGPL)
+* Il fonctionne très bien avec **Qt Designer**
+* Il est parfait pour expliquer la logique Qt sans conflit de licence
+
+
+
+
