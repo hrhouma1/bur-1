@@ -93,3 +93,87 @@ Quand tu exécutes ce script (`python mini_app.py`) :
 | `self.label.setText(...)`       | C’est l’effet visible de l’action : on met à jour le texte du label |
 
 
+
+<br/>
+
+# Annexe 1 - explication de sys.argv
+
+
+
+
+```python
+app = QApplication(sys.argv)
+```
+
+
+
+## 1. **Qu'est-ce que `QApplication` ?**
+
+`QApplication` est **la classe de base** nécessaire pour démarrer **toute application graphique Qt ou PySide6**.
+
+C’est un **objet obligatoire** qui gère :
+
+* L’**initialisation de l’interface**
+* La gestion des **événements** (clics, clavier, souris, etc.)
+* La **boucle principale** qui fait tourner l’application jusqu’à ce que l’utilisateur ferme la fenêtre
+
+> Sans `QApplication`, ton application ne peut pas fonctionner. Aucune fenêtre ne s'affichera.
+
+
+
+## 2. **Pourquoi `sys.argv` ?**
+
+`sys.argv` représente les **arguments passés au script Python** quand tu l’exécutes.
+
+Exemple :
+
+```bash
+python mon_script.py --debug
+```
+
+Dans ce cas, `sys.argv` vaudrait :
+
+```python
+['mon_script.py', '--debug']
+```
+
+Qt utilise ces arguments pour certains réglages internes (ex. : thème, options de débogage, etc.).
+
+Même si ton programme n’utilise pas d’arguments, **il faut quand même passer `sys.argv`** pour que `QApplication` fonctionne correctement.
+
+
+
+## 3. **Résumé en français simple**
+
+| Élément             | Signification                                                        |
+| ------------------- | -------------------------------------------------------------------- |
+| `app =`             | On crée un objet `app` qui représente notre application Qt           |
+| `QApplication(...)` | Qt initialise son système graphique et prépare tout pour l'affichage |
+| `sys.argv`          | On transmet les éventuels paramètres de lancement (obligatoire)      |
+
+
+## 4. **Et ensuite ?**
+
+Quand tu as créé `app`, tu peux :
+
+* Créer ta fenêtre principale
+* L'afficher (`.show()`)
+* Puis lancer la boucle avec `app.exec()` (ou `sys.exit(app.exec())` pour quitter proprement)
+
+
+## 5. Schéma visuel
+
+```python
+# Étape 1 : Créer l'application
+app = QApplication(sys.argv)
+
+# Étape 2 : Créer et afficher la fenêtre
+fenetre = MainWindow()
+fenetre.show()
+
+# Étape 3 : Lancer la boucle principale (attend clics, touches, etc.)
+sys.exit(app.exec())
+```
+
+
+
