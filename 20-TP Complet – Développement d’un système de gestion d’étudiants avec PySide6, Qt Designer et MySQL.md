@@ -3,6 +3,7 @@
 
 
 *Avoir commencé les manipulations dans la vidéo ci-bas :*
+*Avoir consulté le document #19*
 
 * [https://www.youtube.com/watch?v=2WuHs-5kMl0](https://www.youtube.com/watch?v=2WuHs-5kMl0)
 * [https://github.com/CodeQuestions/PyQt5-Video-Book](https://github.com/CodeQuestions/PyQt5-Video-Book)
