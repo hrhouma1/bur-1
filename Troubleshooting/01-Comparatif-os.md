@@ -211,4 +211,96 @@ Dans ce cas, tu dois aussi :
 export DISPLAY=:0
 ```
 
+<br/>
+
+# Annexe  - Pourquoi Linux Mint (minimal) peut poser problème avec PySide6
+
+
+**Linux Mint**, surtout dans ses éditions **Xfce** ou **minimales**, peut provoquer plusieurs erreurs lors de l’utilisation de **PySide6** ou Qt, en raison de l'**absence de bibliothèques système nécessaires au backend graphique X11**.
+
+### 1. Qt dépend fortement de X11 sur Linux
+
+* Qt utilise le backend **xcb** pour interagir avec X11.
+* Les distributions "complètes" (comme Ubuntu Desktop avec GNOME) incluent généralement tous les paquets requis.
+* Les distributions **"légères"** comme Mint Xfce, Mint Minimal, ou les ISO netinstall **ne les installent pas par défaut**.
+
+---
+
+### 2. Paquets X11 manquants (fréquent sous Mint)
+
+PySide6 ne peut pas afficher d’interface sans ces bibliothèques système :
+
+```bash
+libxcb-xinerama0
+libxcb-xinerama0-dev
+libx11-xcb1
+libxkbcommon-x11-0
+libglu1-mesa
+```
+
+**Sans ces paquets**, l’erreur suivante apparaît :
+
+```
+qt.qpa.plugin: Could not find the Qt platform plugin "xcb"
+```
+
+---
+
+### 3. Autres erreurs typiques sous Mint
+
+* Problèmes de `DISPLAY` non défini si l'application est lancée en dehors de l'environnement graphique.
+* Problèmes de segmentation (`Segmentation fault`) si le plugin Qt échoue à se charger.
+* Blocages ou applications qui se ferment sans message si une dépendance est partiellement installée.
+
+---
+
+## Que faire sous Linux Mint (minimal) ?
+
+Voici les **commandes à exécuter immédiatement** après l'installation d’un environnement virtuel :
+
+```bash
+sudo apt update
+sudo apt install -y \
+  libxcb-xinerama0 \
+  libxcb-xinerama0-dev \
+  libxkbcommon-x11-0 \
+  libxcb1 \
+  libx11-xcb1 \
+  libglu1-mesa
+```
+
+Puis :
+
+```bash
+python3 -m venv env
+source env/bin/activate
+pip install --upgrade pip
+pip install pyside6
+```
+
+---
+
+## Vérification finale (test PySide6 minimal)
+
+Crée un fichier `test_ui.py` :
+
+```python
+from PySide6.QtWidgets import QApplication, QLabel
+
+app = QApplication([])
+label = QLabel("Interface test PySide6 OK")
+label.show()
+app.exec()
+```
+
+Lance :
+
+```bash
+python test_ui.py
+```
+
+Si une fenêtre s’affiche, c’est que l’environnement est prêt.
+
+
+
 
