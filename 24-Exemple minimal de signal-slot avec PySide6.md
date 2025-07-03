@@ -233,4 +233,8 @@ sys.exit(app.exec())
 ```
 
 
+# Correction : 
+- Voir https://github.com/hrhouma1/Pyside6-examens/tree/main
+- Voir les branches examen1 et examen2
+
 
