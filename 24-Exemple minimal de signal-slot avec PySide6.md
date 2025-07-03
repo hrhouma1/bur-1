@@ -15,6 +15,7 @@ Développez une interface graphique composée des éléments suivants :
 * Une zone d’affichage (`QLabel`)
 
 Lorsque l’utilisateur saisit un message et clique sur le bouton, le texte saisi doit s’afficher dans la zone d’affichage, précédé de la mention « Message saisi : ».
+- Autrement, une autre fenêtre peut être affichée avec le message saisi par l'utilisateur.
 
 **Contraintes** :
 
