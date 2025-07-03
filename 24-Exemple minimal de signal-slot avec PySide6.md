@@ -1,4 +1,60 @@
-## Objectif
+# Examen – Interfaces graphiques avec PyQt6
+
+## Sujet : Signaux, Slots et Base de Données
+
+**Contexte** : Vous devez développer une application graphique en Python à l’aide de PyQt6. Celle-ci sera divisée en deux parties : une première partie qui illustre le concept fondamental de slot, et une seconde qui permet d’interagir avec une base de données.
+
+
+
+# Partie 1 – Affichage d’un message simple
+
+Développez une interface graphique composée des éléments suivants :
+
+* Un champ de saisie de texte (`QLineEdit`)
+* Un bouton (`QPushButton`)
+* Une zone d’affichage (`QLabel`)
+
+Lorsque l’utilisateur saisit un message et clique sur le bouton, le texte saisi doit s’afficher dans la zone d’affichage, précédé de la mention « Message saisi : ».
+
+**Contraintes** :
+
+* Vous devez relier le signal `clicked` du bouton à une méthode (slot) que vous aurez définie.
+* Le traitement de l’affichage doit se faire exclusivement via cette méthode.
+* Aucune action ne doit être effectuée si le champ est vide.
+
+
+
+# Partie 2 – Insertion dans une base de données
+
+Faites évoluer votre application afin que le message saisi par l’utilisateur soit inséré dans une base de données.
+
+**Instructions** :
+
+1. Créez une base de données locale (SQLite ou MySQL).
+
+2. Créez une table nommée `messages` contenant les champs suivants :
+
+   * `id` (clé primaire auto-incrémentée)
+   * `texte` (contenu du message)
+
+3. Lorsqu’un utilisateur clique sur le bouton :
+
+   * Le texte est affiché dans le `QLabel` comme en Partie 1.
+   * Le texte est inséré dans la table `messages`.
+
+
+# Partie 3 – Contraintes :
+
+* Aucune insertion ne doit être réalisée si le champ est vide.
+* Utilisez une requête SQL paramétrée pour l’insertion (évitez les injections SQL).
+* Gérez les exceptions liées à la base de données avec un affichage clair dans la console ou un message d’erreur graphique.
+
+
+
+<br/>
+<br/>
+
+# Annexe
 
 Créer une petite interface graphique avec :
 
