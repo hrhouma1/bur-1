@@ -1,30 +1,40 @@
-### Arborescence complète du mini-projet **Students\_Info\_System**
+# Prérequis:
+
+
+
+*Avoir commencé les manipulations dans la vidéo ci-bas :*
+
+* [https://www.youtube.com/watch?v=2WuHs-5kMl0](https://www.youtube.com/watch?v=2WuHs-5kMl0)
+* [https://github.com/CodeQuestions/PyQt5-Video-Book](https://github.com/CodeQuestions/PyQt5-Video-Book)
+* [https://fonts.google.com/icons](https://fonts.google.com/icons)
+* [Pyside6_Students_Information_Management_System](https://github.com/hrhouma1/Pyside6_Students_Information_Management_System)
+
+
+
+
+# 1 - Arborescence complète du mini-projet `PYSIDE6_STUDENTS_INFORMATION_MANAGEMENT_SYSTEM` :
 
 ```
-Students_Info_System/                 # dossier racine
-│
-├── main.py                           # point d’entrée PySide6
-├── main.ui                           # maquetté sous Qt Designer
-├── main_ui.py                        # code auto-généré depuis main.ui
-├── connect_database.py               # classe utilitaire MySQL
-├── requirements.txt                  # dépendances Python
-└── icons/                            # ressources SVG
-    ├── add.svg
-    ├── clear.svg
-    ├── delete.svg
-    ├── expand_more.svg
-    ├── export.svg
-    ├── import.svg
-    ├── reset.svg
-    ├── search.svg
-    ├── select.svg
-    └── update.svg
+PYSIDE6_STUDENTS_INFORMATION_MANAGEMENT_SYSTEM/
+├── __pycache__/                          # Dossier système contenant les fichiers Python compilés (.pyc)
+├── env/                                  # Environnement virtuel Python (librairies isolées du projet)
+├── icons/                                # Dossier contenant les icônes utilisées dans l’interface graphique
+├── add_mysql_test_data.py                # Script pour insérer des données de test dans la base MySQL
+├── commandes.txt                         # Fichier texte contenant des commandes utiles (shell, Python, MySQL)
+├── commandes+database-mysql.txt          # Fichier de commandes combinées pour base MySQL et connexion
+├── connect_database.py                   # Script de connexion à la base de données (MySQL ou SQLite)
+├── GUIDE_UTILISATION.txt                 # Guide utilisateur en format texte brut (version alternative au .md)
+├── main_ui.py                            # Fichier Python généré automatiquement depuis le fichier .ui (Qt Designer)
+├── main.py                               # Script principal du programme – point d’entrée de l’application PySide6
+├── main.ui                               # Interface graphique conçue avec Qt Designer (format XML)
+├── students.db                           # Base de données SQLite locale contenant les informations des étudiants
 ```
 
+> 💡 **Remarque** : Ce projet combine à la fois des fichiers d’interface (`.ui`, `.py`), des scripts de gestion de base de données, et une architecture organisée pour un TP ou une application réelle de gestion.
 
 
 
-
+# 2 - Manipulations :
 
 
 ```text
