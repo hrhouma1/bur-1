@@ -1,5 +1,11 @@
 # Examen – Interfaces graphiques avec PyQt6
 
+
+
+# Correction : 
+> Voir https://github.com/hrhouma1/Pyside6-examens/tree/main
+> Voir les branches examen1 et examen2
+
 ## Sujet : Signaux, Slots et Base de Données
 
 **Contexte** : Vous devez développer une application graphique en Python à l’aide de PyQt6. Celle-ci sera divisée en deux parties : une première partie qui illustre le concept fondamental de slot, et une seconde qui permet d’interagir avec une base de données.
@@ -233,8 +239,6 @@ sys.exit(app.exec())
 ```
 
 
-# Correction : 
-- Voir https://github.com/hrhouma1/Pyside6-examens/tree/main
-- Voir les branches examen1 et examen2
+
 
 
