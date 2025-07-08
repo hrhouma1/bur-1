@@ -3,8 +3,8 @@
 
 
 # Correction : 
-> Voir https://github.com/hrhouma1/Pyside6-examens/tree/main
-> Voir les branches examen1 et examen2
+> - Voir https://github.com/hrhouma1/Pyside6-examens/tree/main
+> - Voir les branches examen1 et examen2
 
 ## Sujet : Signaux, Slots et Base de Données
 
