@@ -1,0 +1,271 @@
+# EXERCICE PRATIQUE – Migrations avec SQLAlchemy et Alembic
+
+## Objectif de l'exercice
+
+Apprendre à gérer correctement l’évolution d’un schéma de base de données avec SQLAlchemy en utilisant **Alembic**, un outil professionnel de gestion des migrations.
+
+Vous allez :
+
+1. Configurer Alembic.
+2. Générer des scripts de migration automatiquement.
+3. Appliquer des migrations.
+4. Valider la migration.
+
+
+
+## Prérequis
+
+* Projet existant fonctionnel (`Etudiant` et `CarteEtudiant` avec relation 1:1).
+* Compréhension du fonctionnement de SQLAlchemy et PySide6.
+
+
+
+## Situation initiale
+
+### Structure initiale (déjà implémentée)
+
+```python
+class Etudiant(Base):
+    __tablename__ = "etudiants"
+    id = Column(Integer, primary_key=True)
+    nom = Column(String)
+    prenom = Column(String)
+    carte = relationship("CarteEtudiant", back_populates="etudiant", uselist=False)
+
+class CarteEtudiant(Base):
+    __tablename__ = "cartes"
+    id = Column(Integer, primary_key=True)
+    numero = Column(String)
+    etudiant_id = Column(Integer, ForeignKey("etudiants.id"), unique=True)
+    etudiant = relationship("Etudiant", back_populates="carte")
+```
+
+
+
+## ÉTAPE 1 : Installer Alembic et Initialiser le projet
+
+### 1.1 Installer Alembic
+
+```bash
+pip install alembic
+```
+
+### 1.2 Initialiser Alembic
+
+Dans votre dossier projet :
+
+```bash
+alembic init migrations
+```
+
+
+
+## ÉTAPE 2 : Configurer Alembic (`alembic.ini` et `env.py`)
+
+### 2.1 Modifier le fichier `alembic.ini`
+
+```
+sqlalchemy.url = sqlite:///etudiants_cartes.db
+```
+
+### 2.2 Modifier le fichier `migrations/env.py`
+
+Importer vos modèles existants dans `env.py` :
+
+```python
+import sys
+import os
+sys.path.append(os.path.abspath('.'))
+
+from database import Base  # Adapter selon votre fichier
+
+target_metadata = Base.metadata
+```
+
+
+
+## ÉTAPE 3 : Générer la première migration (initiale)
+
+```bash
+alembic revision --autogenerate -m "Migration initiale"
+```
+
+Cela crée un script de migration automatique dans le dossier `migrations/versions/`.
+
+
+## ÉTAPE 4 : Appliquer la migration initiale
+
+```bash
+alembic upgrade head
+```
+
+Votre base initiale est maintenant versionnée par Alembic.
+
+
+
+## ÉTAPE 5 : Modifier le schéma (Nouvelles exigences)
+
+Ajoutez dans votre fichier `database.py` les nouvelles colonnes :
+
+```python
+from datetime import datetime
+
+class Etudiant(Base):
+    __tablename__ = "etudiants"
+    id = Column(Integer, primary_key=True)
+    nom = Column(String, nullable=False)
+    prenom = Column(String, nullable=False)
+    email = Column(String, unique=True)        # Nouveau
+    date_naissance = Column(Date)              # Nouveau
+    carte = relationship("CarteEtudiant", back_populates="etudiant", uselist=False)
+
+class CarteEtudiant(Base):
+    __tablename__ = "cartes"
+    id = Column(Integer, primary_key=True)
+    numero = Column(String, nullable=False)
+    date_emission = Column(DateTime, default=datetime.now)  # Nouveau
+    date_expiration = Column(Date)                          # Nouveau
+    statut = Column(String, default="active")               # Nouveau
+    etudiant_id = Column(Integer, ForeignKey("etudiants.id"), unique=True)
+    etudiant = relationship("Etudiant", back_populates="carte")
+```
+
+
+
+## ÉTAPE 6 : Générer la migration automatique vers la nouvelle version
+
+```bash
+alembic revision --autogenerate -m "Ajout email, dates et statut"
+```
+
+Vérifiez le fichier généré automatiquement dans `migrations/versions`.
+
+
+
+## ÉTAPE 7 : Appliquer la nouvelle migration
+
+```bash
+alembic upgrade head
+```
+
+Votre base de données est maintenant à jour avec les nouvelles colonnes.
+
+
+
+## ÉTAPE 8 : Vérifier la migration directement avec SQLAlchemy
+
+### Créez un script `test_migration.py` :
+
+```python
+from database import session, Etudiant, CarteEtudiant
+from datetime import datetime, date
+
+def test_migration():
+    e = Etudiant(nom="Test", prenom="Migration", email="test.migration@example.com", date_naissance=date(1999,1,1))
+    c = CarteEtudiant(numero="TEST1234", date_emission=datetime.now(), date_expiration=date(2025,1,1), statut="active", etudiant=e)
+
+    session.add(e)
+    session.add(c)
+    session.commit()
+
+    etudiant = session.query(Etudiant).filter_by(email="test.migration@example.com").first()
+    if etudiant:
+        print("Étudiant ajouté:", etudiant.nom, etudiant.email)
+        print("Carte associée:", etudiant.carte.numero, etudiant.carte.statut)
+    else:
+        print("Échec de la migration.")
+
+if __name__ == "__main__":
+    test_migration()
+```
+
+Exécutez ce test :
+
+```bash
+python test_migration.py
+```
+
+
+
+## TRAVAIL À FAIRE (obligatoire)
+
+**A – Réaliser intégralement la migration Alembic**
+
+1. Initialiser Alembic.
+2. Générer la migration initiale automatique.
+3. Modifier les modèles ORM pour les nouvelles colonnes.
+4. Générer et appliquer la nouvelle migration.
+5. Vérifier avec le script de test.
+
+**B – Interface graphique (optionnel)**
+
+* Adaptez votre interface PySide6 pour utiliser les nouveaux champs.
+* Permettez la recherche par email et le filtrage par statut.
+
+
+
+## Commandes résumées (sans emojis)
+
+### Installer Alembic
+
+```bash
+pip install alembic
+```
+
+### Initialiser Alembic
+
+```bash
+alembic init migrations
+```
+
+### Modifier Alembic
+
+```
+sqlalchemy.url = sqlite:///etudiants_cartes.db
+```
+
+### Générer la migration initiale
+
+```bash
+alembic revision --autogenerate -m "Migration initiale"
+```
+
+### Appliquer la migration initiale
+
+```bash
+alembic upgrade head
+```
+
+### Générer migration après modifications
+
+```bash
+alembic revision --autogenerate -m "Ajout email, dates et statut"
+```
+
+### Appliquer cette migration
+
+```bash
+alembic upgrade head
+```
+
+### Revenir à la version précédente (optionnel)
+
+```bash
+alembic downgrade -1
+```
+
+
+
+## Critères de succès
+
+* La migration Alembic s'applique sans erreur.
+* Toutes les nouvelles colonnes sont créées et opérationnelles.
+* Le script de test fonctionne correctement.
+
+
+
+## En résumé :
+
+Cette méthode utilisant Alembic est la façon professionnelle et officielle de gérer proprement l’évolution d’une base de données avec SQLAlchemy, similaire à Prisma Migrate.
+
+Vous avez maintenant un contrôle complet et structuré sur vos migrations SQLAlchemy grâce à Alembic.
