@@ -1,4 +1,4 @@
-# **mini-service “Todo”** implémenté deux fois, pour comparer clairement :
+# **Mini-service “Todo”** implémenté deux fois, pour comparer clairement :
 
 * **Next.js (App Router)** : endpoints définis par dossiers/fichiers.
 * **FastAPI** : endpoints définis par annotations Python.
