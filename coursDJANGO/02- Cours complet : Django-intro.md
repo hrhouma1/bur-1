@@ -1,4 +1,4 @@
-# 📘 Cours complet : Django pour grands débutants
+# 📘 Cours introductif pour Django 
 
 ---
 
