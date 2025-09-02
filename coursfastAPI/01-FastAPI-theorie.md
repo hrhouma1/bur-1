@@ -46,3 +46,32 @@ FastAPI est un **framework web moderne** en Python conçu pour créer des **API 
 
 👉 En résumé, **FastAPI est un framework Python optimisé pour la création rapide, sûre et performante d’APIs web**, en tirant parti des types Python et de la programmation asynchrone.
 
+
+<br/>
+
+<br/>
+
+# Annexe 1 - Flask vs FastAPI vs Django
+
+| Critère                      | **Flask**                                      | **FastAPI**                                                         | **Django**                                                               |
+| ---------------------------- | ---------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **Année de création**        | 2010                                           | 2018                                                                | 2005                                                                     |
+| **Type de framework**        | Micro-framework minimaliste                    | Framework moderne pour APIs (ASGI)                                  | Framework complet ("batteries included")                                 |
+| **Philosophie**              | Flexibilité maximale, on ajoute ce qu’on veut  | Automatisation, performance et validation intégrée                  | Tout-en-un : fournit ORM, auth, templates, admin                         |
+| **Gestion des données**      | Validation manuelle (via extensions)           | Validation automatique avec **Pydantic**                            | Validation via **Django Forms** et **Models**                            |
+| **Documentation API**        | Pas intégrée (nécessite outils externes)       | Automatique avec Swagger / Redoc                                    | Pas native, nécessite **Django REST Framework (DRF)**                    |
+| **Performance**              | Correcte mais limitée (WSGI)                   | Très rapide, optimisé async (ASGI)                                  | Lourde mais robuste (WSGI/ASGI depuis Django 3)                          |
+| **Extensions / Écosystème**  | Riche écosystème d’extensions                  | Moins d’extensions mais compatible avec l’écosystème Python moderne | Énorme écosystème officiel et communautaire (DRF, CMS, e-commerce, etc.) |
+| **Moteur de templates**      | **Jinja2** inclus                              | Pas de moteur intégré (API-first)                                   | **Django Template Language** intégré                                     |
+| **Courbe d’apprentissage**   | Très simple, accessible aux débutants          | Moyenne (types, async, Pydantic)                                    | Plus raide (beaucoup de concepts : ORM, migrations, admin, etc.)         |
+| **Cas d’usage typiques**     | Prototypes rapides, petits sites, petites APIs | APIs modernes, microservices, ML/IA                                 | Applications web complètes, e-commerce, ERP, gros projets                |
+| **Organisation du projet**   | Libre, non imposée                             | Encourage une organisation claire (routes, modèles, dépendances)    | Fortement structurée (apps, modèles, vues, templates)                    |
+| **Communauté et popularité** | Très grande                                    | En forte croissance                                                 | Immense, très mature et soutenue depuis 20 ans                           |
+
+---
+
+👉 **En résumé :**
+
+* **Flask** = léger, simple, parfait pour prototypes ou petits projets.
+* **FastAPI** = moderne, rapide, idéal pour APIs et microservices.
+* **Django** = framework complet, adapté aux grandes applications web nécessitant un socle robuste (ORM, sécurité, back-office intégré).
