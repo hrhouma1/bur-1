@@ -1,0 +1,467 @@
+
+taskkill /F /IM node.exe
+
+
+STACK (FRONT  + BACK + BD)
+
+CLIENT
+	FRONT = REACT ou ANGULAR
+
+SERVICES WEB
+
+SERVEUR 
+		BACK  = PHP, JEE, NODE JS , NEXT 
+		BD    = SUPABASE ou XATA (POSTGRESQL) , FIREBASE 
+
+
+VERCEL + GITHUB ACTIONS		
+
+
+
+NEXT AUTH / STRAPI / CLERK 
+SHADCN /TAILWIND  
+
+
+
+
+mkdir C:\projetsw
+cd projetsw
+git clone https://github.com/hrhouma1/next-01-evaluation-du-lab2-projet-final.git
+cd .\next-01-evaluation-du-lab2-projet-final\
+npm install
+npm run dev ==> erreur
+1) Création de .env et ajout de DATABASE_URL dans .env
+2) Ajout optionnel pour le moment de :
+
+	DATABASE_URL (OBLIGATOIRE)
+	NEXTAUTH_SECRET (OBLIGATOIRE)
+	NEXTAUTH_URL
+	STRIPE_SECRET_KEY
+	STRIPE_PUBLISHABLE_KEY
+	STRIPE_WEBHOOK_SECRET
+	GOOGLE_CLIENT_ID
+	GOOGLE_CLIENT_SECRET
+	GITHUB_CLIENT_ID
+	GITHUB_CLIENT_SECRET
+	
+npm install prisma @prisma/client
+npm install -D prisma
+npx prisma init ==> erreur et c'est normal étant donné que le dossier prisma existe
+node -e "console.log('NEXTAUTH_SECRET=' + require('crypto').randomBytes(32).toString('hex'))"
+
+3) Ajouter le schéma Prisma (BD qui va être crée, à vérifier , critiquer, discuter en groupe)
+4) Ajouter client Prisma ( Ajouter du code js pour interagir avec le cloud neon)
+
+npx prisma db push (prérequis , le schéma + le client PRISMA)
+npx prisma generate
+
+--------------------------
+Commandes utiles:
+--------------------------
+
+npx prisma db pull --dry-run
+npx prisma studio --port 5000
+npx prisma studio (par défaut 5555 ==> http://localhost:5555)
+
+
+
+5) Tester les URLS
+
+npm run dev 
+http://localhost:3000/
+http://localhost:3000/auth/signup (page.tsx)
+http://localhost:3000/auth/signin (page.tsx)
+http://localhost:3000/auth/error (page.tsx)
+
+
+6) Next AUTH
+
+npm install next-auth@beta
+npm install @auth/prisma-adapter
+npm install bcryptjs @types/bcryptjs
+npm list next-auth @auth/prisma-adapter bcryptjs
+
+
+
+
+
+----------------------------------------------
+# Annexe 1 - Le .env
+----------------------------------------------
+
+# ===== BASE DE DONNÉES NEON/POSTGRESQL =====
+DATABASE_URL="postgresql://neondb_owner:npg_4kcjiKle1frx@ep-fancy-hill-aemlz2ya-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+
+# ===== NEXTAUTH CONFIGURATION =====
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="f1694bf7076d860b5769de1a0555dc516360d86005171cc7a3872899a2a3b5f7"
+
+# =======================================
+# STRIPE (Temporaire - sera configuré plus tard)
+# =======================================
+STRIPE_SECRET_KEY="sk_test_SIMULATION_SERA_REMPLACE_PLUS_TARD"
+STRIPE_PUBLISHABLE_KEY="pk_test_SIMULATION_SERA_REMPLACE_PLUS_TARD"
+STRIPE_WEBHOOK_SECRET="whsec_SIMULATION_SERA_REMPLACE_PLUS_TARD"
+
+----------------------------------------------
+# Annexe 2 - DATABASE_URL et NEXTAUTH_SECRET
+----------------------------------------------
+
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="f1694bf7076d860b5769de1a0555dc516360d86005171cc7a3872899a2a3b5f7"
+
+node -e "console.log('NEXTAUTH_SECRET=' + require('crypto').randomBytes(32).toString('hex'))"
+
+
+----------------------------------------------
+# Annexe 3 - Schéma Prisma (prisma/schema.prisma)
+----------------------------------------------
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ===================================
+// MODÈLES DE L'APPLICATION PHOTOMARKET
+// ===================================
+
+// Énumération des rôles utilisateur
+enum Role {
+  USER   // Utilisateur normal (peut acheter et vendre)
+  ADMIN  // Administrateur (gestion complète)
+}
+
+// Énumération des statuts de photo
+enum PhotoStatus {
+  DRAFT     // Brouillon (pas encore publié)
+  PUBLISHED // Publié (visible et achetable)
+  SOLD      // Vendu (plus disponible)
+  ARCHIVED  // Archivé (retiré de la vente)
+}
+
+// Énumération des statuts utilisateur
+enum UserStatus {
+  ACTIVE                // Utilisateur actif
+  SUSPENDED            // Suspendu temporairement
+  PENDING_VERIFICATION // En attente de vérification email
+  INACTIVE             // Inactif/désactivé
+}
+
+// Énumération des catégories de photos
+enum PhotoCategory {
+  NATURE       // Photos de nature
+  PORTRAIT     // Portraits
+  ARCHITECTURE // Architecture et bâtiments
+  STREET       // Photographie de rue
+  OTHER        // Autres catégories
+}
+
+// ===================================
+// MODÈLE UTILISATEUR
+// ===================================
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  password      String
+  name          String?
+  role          Role       @default(USER)
+  status        UserStatus @default(ACTIVE)
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  // Relations avec autres modèles
+  photos        Photo[]     // Photos uploadées par l'utilisateur
+  purchases     Purchase[]  // Achats effectués par l'utilisateur
+  accounts      Account[]   // Comptes OAuth (NextAuth.js)
+  sessions      Session[]   // Sessions de connexion (NextAuth.js)
+
+  @@map("users")
+}
+
+// ===================================
+// MODÈLE PHOTO
+// ===================================
+model Photo {
+  id          String        @id @default(cuid())
+  title       String
+  description String?
+  imageUrl    String        // URL de l'image stockée
+  price       Float         // Prix en euros
+  status      PhotoStatus   @default(DRAFT)
+  category    PhotoCategory @default(OTHER)
+  tags        String[]      // Tags pour la recherche
+  width       Int?          // Largeur de l'image en pixels
+  height      Int?          // Hauteur de l'image en pixels
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  // Relation avec l'utilisateur propriétaire
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Relations avec les achats
+  purchases   Purchase[]
+
+  @@map("photos")
+}
+
+// ===================================
+// MODÈLE ACHAT
+// ===================================
+model Purchase {
+  id                String   @id @default(cuid())
+  stripeSessionId   String   @unique // ID de session Stripe
+  stripePaymentId   String?  // ID du paiement Stripe
+  amount            Float    // Montant payé
+  currency          String   @default("eur")
+  status            String   // "pending", "completed", "failed"
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relation avec l'acheteur
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Relation avec la photo achetée
+  photoId           String
+  photo             Photo    @relation(fields: [photoId], references: [id], onDelete: Cascade)
+
+  @@map("purchases")
+}
+
+// ===================================
+// MODÈLES NEXTAUTH.JS (Authentification)
+// ===================================
+
+// Comptes OAuth (Google, GitHub, etc.)
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+// Sessions de connexion
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+// Tokens de vérification (email, reset password)
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verificationtokens")
+}
+
+----------------------------------------------
+# Annexe 4  - Client Prisma (src/lib/prisma.ts)
+----------------------------------------------
+
+import { PrismaClient } from '@prisma/client'
+
+const globalForPrisma = globalThis as unknown as {
+  prisma: PrismaClient | undefined
+}
+
+export const prisma = globalForPrisma.prisma ?? new PrismaClient()
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+
+
+
+
+----------------------------------------------
+# Annexe 5  - tester la connexion à la BD
+----------------------------------------------
+
+node .\test-db-complet.js
+
+
+------------------------------
+test-db-complet.js
+------------------------------
+
+const { PrismaClient } = require('@prisma/client')
+
+async function testComplet() {
+  const prisma = new PrismaClient()
+  
+  console.log('=== TEST COMPLET PRISMA + NEON ===\n')
+  
+  try {
+    // Test 1: Connexion
+    console.log('1. Test de connexion...')
+    await prisma.$connect()
+    console.log('   ✅ Connexion réussie')
+    
+    // Test 2: Requête de base
+    console.log('\n2. Test requête SQL...')
+    const result = await prisma.$queryRaw`SELECT NOW() as current_time, version() as db_version`
+    console.log('   ✅ Heure serveur:', result[0].current_time)
+    console.log('   ✅ Version PostgreSQL:', result[0].db_version.substring(0, 20) + '...')
+    
+    // Test 3: Vérifier les tables
+    console.log('\n3. Test des tables créées...')
+    const tables = await prisma.$queryRaw`
+      SELECT table_name 
+      FROM information_schema.tables 
+      WHERE table_schema = 'public' 
+      ORDER BY table_name
+    `
+    console.log('   ✅ Tables créées:', tables.map(t => t.table_name).join(', '))
+    
+    // Test 4: Test des modèles Prisma
+    console.log('\n4. Test des modèles Prisma...')
+    
+    // Compter les utilisateurs (devrait être 0)
+    const userCount = await prisma.user.count()
+    console.log('   ✅ Utilisateurs dans la DB:', userCount)
+    
+    // Compter les photos (devrait être 0)
+    const photoCount = await prisma.photo.count()
+    console.log('   ✅ Photos dans la DB:', photoCount)
+    
+    // Compter les achats (devrait être 0)
+    const purchaseCount = await prisma.purchase.count()
+    console.log('   ✅ Achats dans la DB:', purchaseCount)
+    
+    console.log('\n🎉 TOUS LES TESTS RÉUSSIS ! Prisma + Neon sont correctement configurés.')
+    
+  } catch (error) {
+    console.error('\n❌ ERREUR DURANT LES TESTS:')
+    console.error('Message:', error.message)
+    console.error('Code:', error.code)
+    
+    if (error.message.includes('Environment variable not found')) {
+      console.error('\n🔧 SOLUTION: Vérifiez votre fichier .env')
+    } else if (error.message.includes('Can\'t reach database')) {
+      console.error('\n🔧 SOLUTION: Vérifiez votre URL Neon dans .env')
+    } else if (error.message.includes('does not exist')) {
+      console.error('\n🔧 SOLUTION: Exécutez "npx prisma db push" pour créer les tables')
+    }
+    
+  } finally {
+    await prisma.$disconnect()
+    console.log('\nConnexion fermée.')
+  }
+}
+
+testComplet()
+
+Vous reconnecter avec test@test.com / test123
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+git clone https://github.com/hrhouma1/next-01-evaluation-du-lab2.git
+cd next-01-evaluation-du-lab2
+npm install
+npm run dev  ==­> erreur
+Création de .env et ajout de DATABASE_URL dans .env
+Ajout de DATABASE_URL dans le .env
+npm install prisma @prisma/client
+npm install -D prisma
+npx prisma init ==> erreur et c'est normal étant donné que le dossier prisma existe
+Ajouter le schéma Prisma
+Ajouter client Prisma ( Ajouter du code js pour interagir avec le cloud neon)
+npx prisma db push (prérequis , le schéma + le client PRISMA)
+npx prisma generate
+## optionnel:
+npx prisma db pull --dry-run
+npx prisma studio --port 5000
+npx prisma studio (par défaut 5555 ==> http://localhost:5555)
+npm run dev 
+Lire la documentation
+
+
+
+
+
+
+
+
+
+
+
+netstat -ano | findstr :3000
+taskkill /PID <PID_3000> /F
+
+netstat -ano | findstr :3001
+taskkill /PID <PID_3001> /F
+
+netstat -ano | findstr :3002
+taskkill /PID <PID_3002> /F
+
+netstat -ano | findstr :3003
+taskkill /PID <PID_3003> /F
+
+
+Remplace chaque `<PID_300X>` par le numéro affiché à droite dans la sortie de `netstat`.
+Exemple :
+netstat -ano | findstr :3000
+taskkill /PID 12345 /F
+Si tu veux tout en une ligne pour port 3000 :
+for /f "tokens=5" %a in ('netstat -aon ^| findstr :3000') do taskkill /F /PID %a
+
+
+
+
+
+git clone https://github.com/hrhouma1/Pyside6_Students_ORM_2.git
+cd Pyside6_Students_ORM_2
+python -m venv env
+.\env\Scripts\activate
+pip install -r requirements.txt
+python main.py
+
+
+C:\projet_sqlalchemy\Pyside6_Students_ORM_2>sqlite3 universite.db
+sqlite3 universite.db
+.tables
+SELECT * FROM etudiants;
+SELECT * FROM cartes_etudiantes;
+
+

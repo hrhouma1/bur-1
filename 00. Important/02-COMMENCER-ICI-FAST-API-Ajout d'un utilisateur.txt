@@ -1,0 +1,17 @@
+
+
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+python seed_data.py add
+- Testez /docs => http://localhost:8000/docs
+Ajout d'un utilisateur par vous même
+
+
+
+
+SELECT * FROM "product"
+WHERE LOWER("name") 
+LIKE LOWER ('%<query>%')
+ORDER BY "createdAt" DESC;

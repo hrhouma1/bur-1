@@ -1,0 +1,138 @@
+
+
+main 	==­> partie API avec FASTAPI 
+etape2 	==> Ajout de l'interface pyside6
+etape 3 ==> Finalisation du projet
+
+
+git clone -b etape3 --single-branch https://github.com/hrhouma1/Fastapi-01-projet-01.git Fastapi-01-projet-02
+python3.13 -m venv venv
+venv\Scripts\activate
+pip list
+pip install -r requirements.txt
+pip list 
+pip show SQLAlchemy
+
+
+Nous allons créer deux terminaux
+
+==> python safe_start.py (Lancer le serveur)
+==> Le deuxième c'est pour lancer l'interface graphique (lancer la GUI) 
+
+python run_gui.py
+
+
+python -m gui_client.main_window
+
+python -m 
+
+
+-------------------------------
+1 - Démarrer le serveur 
+-------------------------------
+
+safe_start.py
+ou
+python -m uvicorn  main:app --reload --host 0.0.0.0 --port 8000
+ou 
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+
+
+Erreur =  No module named uvicorn
+(Dans le script safe_start.py, il excécute les commandes dans la cmd normal et non pas dans l'environnement virtuel)
+Correction (ligne 137)
+cmd = [
+    sys.executable, '-m', 'uvicorn',
+    'main:app',
+    '--host', args.host,
+    '--port', str(args.port)
+]
+
+
+-------------------------------
+2 - Démarrer l'interface graphique
+-------------------------------
+
+
+python run_gui.py
+ou
+python -m gui_client.main_window
+
+-------------------------------
+3 - Ajout d'utilisateurs fictifs + leurs articles
+-------------------------------
+
+Il suffit d'exécuter la première ligne
+
+python seed_data.py add
+python seed_data.py status
+python seed_data.py quick
+python seed_data.py reset
+
+
+
+python seed_data.py add
+python run_gui.py
+
+
+
+
+
+
+-------------------------------
+3 - Pour résumer
+-------------------------------
+
+
+
+
+
+git clone -b etape3 --single-branch https://github.com/hrhouma1/Fastapi-01-projet-01.git Fastapi-01-projet-02
+cd Fastapi-01-projet-02
+python3.13 -m venv venv
+venv\Scripts\activate
+
+pip list
+pip install -r requirements.txt
+pip list 
+pip show SQLAlchemy
+
+python seed_data.py add
+python seed_data.py status
+python safe_start.py
+python run_gui.py
+
+http://localhost:8000/
+http://localhost:8000/docs
+
+
+
+IMPORTANT
+Erreur =  No module named uvicorn
+(Dans le script safe_start.py, il excécute les commandes dans la cmd normal et non pas dans l'environnement virtuel)
+Correction (ligne 137)
+
+========================> NON 
+cmd = [
+    sys.executable, '-m', 'uvicorn',
+    'main:app',
+    '--host', args.host,
+    '--port', str(args.port)
+]
+
+
+==========================> OUI
+
+    cmd = [
+        sys.executable, '-m', 'uvicorn',
+        'main:app', 
+        '--host', args.host, 
+        '--port', str(args.port)
+    ]
+    
+Pourquoi c’est mieux :
+
+- sys.executable -m uvicorn garantit que tu utilises le Python de ton venv (et donc le bon Uvicorn).
+- On ne remet pas un second python -m uvicorn dans la même commande.
+- Tout le reste (host/port/reload) reste inchangé.
