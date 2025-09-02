@@ -1,1 +1,5 @@
-
+- https://github.com/hrhouma1/Pyside6_Students_ORM_1
+- https://github.com/hrhouma1/Pyside6_Students_ORM_2
+- https://github.com/hrhouma1/Pyside6_Students_ORM_3
+-  https://github.com/hrhouma1/Fastapi-01-projet-01 (plusieurs branches)
+- https://github.com/hrhouma1/Fastapi-01-projet-04/tree/main
