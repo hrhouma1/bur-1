@@ -169,77 +169,77 @@ La **sécurité en robotique** est critique car un robot peut agir physiquement 
 ## Étude de cas 1 – Conception et simulation
 
 Une entreprise de robotique doit simuler les trajectoires d’un bras robotisé en 3D avec une précision millimétrique.
-**Question :** Quel type d’application est le plus adapté ?
+- **Question :** Quel type d’application est le plus adapté ?
 
 * A. Application Web
 * B. Application Mobile
 * C. Application Desktop
 
-**Réponse attendue :** C – Application Desktop (performance locale, intégration matérielle).
+- **Réponse attendue :** C – Application Desktop (performance locale, intégration matérielle).
 
 ---
 
 ## Étude de cas 2 – Supervision à distance
 
-Un ingénieur doit surveiller l’état de plusieurs robots déployés dans une usine depuis n’importe quel ordinateur, sans installer de logiciel.
+- Un ingénieur doit surveiller l’état de plusieurs robots déployés dans une usine depuis n’importe quel ordinateur, sans installer de logiciel.
 **Question :** Quel type d’application est le plus adapté ?
 
 * A. Application Web
 * B. Application Mobile
 * C. Application Desktop
 
-**Réponse attendue :** A – Application Web (accessible partout via navigateur).
+- **Réponse attendue :** A – Application Web (accessible partout via navigateur).
 
 ---
 
 ## Étude de cas 3 – Pilotage sur le terrain
 
-Un technicien doit contrôler un drone d’inspection en extérieur et recevoir des alertes instantanées si la batterie est faible.
-**Question :** Quel type d’application est le plus adapté ?
+- Un technicien doit contrôler un drone d’inspection en extérieur et recevoir des alertes instantanées si la batterie est faible.
+- **Question :** Quel type d’application est le plus adapté ?
 
 * A. Application Web
 * B. Application Mobile
 * C. Application Desktop
 
-**Réponse attendue :** B – Application Mobile (portabilité, notifications, accès aux capteurs).
+- **Réponse attendue :** B – Application Mobile (portabilité, notifications, accès aux capteurs).
 
 ---
 
 ## Étude de cas 4 – Sécurité des données
 
-Un logiciel de contrôle de robot installé sur PC a été infecté par un virus, entraînant une perte de contrôle du bras robotisé.
+- Un logiciel de contrôle de robot installé sur PC a été infecté par un virus, entraînant une perte de contrôle du bras robotisé.
 **Question :** Quel type d’application est concerné ?
 
 * A. Application Desktop
 * B. Application Web
 * C. Application Mobile
 
-**Réponse attendue :** A – Application Desktop (exposition aux malwares locaux).
+- **Réponse attendue :** A – Application Desktop (exposition aux malwares locaux).
 
 ---
 
 ## Étude de cas 5 – Collaboration en temps réel
 
-Une équipe internationale doit rédiger en même temps un rapport technique sur les performances d’un robot. Chacun doit pouvoir éditer le document à distance.
+- Une équipe internationale doit rédiger en même temps un rapport technique sur les performances d’un robot. Chacun doit pouvoir éditer le document à distance.
 **Question :** Quel type d’application est le plus adapté ?
 
 * A. Application Desktop
 * B. Application Web
 * C. Application Mobile
 
-**Réponse attendue :** B – Application Web (collaboration en ligne en temps réel).
+- **Réponse attendue :** B – Application Web (collaboration en ligne en temps réel).
 
 ---
 
 ## Étude de cas 6 – Maintenance rapide
 
-Un technicien reçoit une alerte et doit rapidement consulter le manuel interactif du robot sur le terrain, directement depuis son téléphone.
+- Un technicien reçoit une alerte et doit rapidement consulter le manuel interactif du robot sur le terrain, directement depuis son téléphone.
 **Question :** Quel type d’application est le plus adapté ?
 
 * A. Application Web
 * B. Application Mobile
 * C. Application Desktop
 
-**Réponse attendue :** B – Application Mobile (portabilité, accès immédiat).
+- **Réponse attendue :** B – Application Mobile (portabilité, accès immédiat).
 
 
