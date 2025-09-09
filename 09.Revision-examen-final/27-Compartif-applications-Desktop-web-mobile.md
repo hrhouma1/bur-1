@@ -175,7 +175,8 @@ Une entreprise de robotique doit simuler les trajectoires d’un bras robotisé 
 * B. Application Mobile
 * C. Application Desktop
 
-- **Réponse attendue :** C – Application Desktop (performance locale, intégration matérielle).
+- **Réponse attendue :
+- ** C – Application Desktop (performance locale, intégration matérielle).
 
 ---
 
@@ -188,7 +189,8 @@ Une entreprise de robotique doit simuler les trajectoires d’un bras robotisé 
 * B. Application Mobile
 * C. Application Desktop
 
-- **Réponse attendue :** A – Application Web (accessible partout via navigateur).
+- **Réponse attendue :
+- ** A – Application Web (accessible partout via navigateur).
 
 ---
 
@@ -201,7 +203,8 @@ Une entreprise de robotique doit simuler les trajectoires d’un bras robotisé 
 * B. Application Mobile
 * C. Application Desktop
 
-- **Réponse attendue :** B – Application Mobile (portabilité, notifications, accès aux capteurs).
+- **Réponse attendue :
+- ** B – Application Mobile (portabilité, notifications, accès aux capteurs).
 
 ---
 
@@ -214,7 +217,8 @@ Une entreprise de robotique doit simuler les trajectoires d’un bras robotisé 
 * B. Application Web
 * C. Application Mobile
 
-- **Réponse attendue :** A – Application Desktop (exposition aux malwares locaux).
+- **Réponse attendue :
+- ** A – Application Desktop (exposition aux malwares locaux).
 
 ---
 
@@ -227,7 +231,8 @@ Une entreprise de robotique doit simuler les trajectoires d’un bras robotisé 
 * B. Application Web
 * C. Application Mobile
 
-- **Réponse attendue :** B – Application Web (collaboration en ligne en temps réel).
+- **Réponse attendue :
+- ** B – Application Web (collaboration en ligne en temps réel).
 
 ---
 
@@ -240,6 +245,7 @@ Une entreprise de robotique doit simuler les trajectoires d’un bras robotisé 
 * B. Application Mobile
 * C. Application Desktop
 
-- **Réponse attendue :** B – Application Mobile (portabilité, accès immédiat).
+- **Réponse attendue :
+- ** B – Application Mobile (portabilité, accès immédiat).
 
 
