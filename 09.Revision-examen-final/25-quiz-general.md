@@ -1,145 +1,161 @@
-# Quiz 25 - Revision Generale
+Voici la version corrigée en français.
 
-## Questions a Choix Multiples
+# Quiz 25 – Révision générale
+
+## Questions à choix multiples
 
 ### Question 1
-Quelle est la principale difference entre Tkinter et PySide6 ?
 
-a) Tkinter est plus moderne que PySide6  
-b) PySide6 offre plus de widgets et de fonctionnalites avancees  
-c) Tkinter est plus rapide que PySide6  
-d) Il n'y a pas de difference significative  
+Quelle est la principale différence entre Tkinter et PySide6 ?
 
-**Reponse correcte :** b) PySide6 offre plus de widgets et de fonctionnalites avancees
+a) Tkinter est plus moderne que PySide6
+b) PySide6 offre plus de widgets et de fonctionnalités avancées
+c) Tkinter est plus rapide que PySide6
+d) Il n’y a pas de différence significative
+
+**Réponse correcte :** b) PySide6 offre plus de widgets et de fonctionnalités avancées
 
 ---
 
 ### Question 2
-Quel est l'avantage principal d'utiliser un ORM comme SQLAlchemy ?
 
-a) Il est plus rapide que le SQL natif  
-b) Il abstrait les differences entre les bases de donnees  
-c) Il consomme moins de memoire  
-d) Il n'y a pas d'avantage particulier  
+Quel est l’avantage principal d’utiliser un ORM comme SQLAlchemy ?
 
-**Reponse correcte :** b) Il abstrait les differences entre les bases de donnees
+a) Il est plus rapide que le SQL natif
+b) Il abstrait les différences entre les bases de données
+c) Il consomme moins de mémoire
+d) Il n’y a pas d’avantage particulier
+
+**Réponse correcte :** b) Il abstrait les différences entre les bases de données
 
 ---
 
 ### Question 3
-Dans une API REST, que signifie l'acronyme CRUD ?
 
-a) Create, Read, Update, Delete  
-b) Connect, Retrieve, Upload, Download  
-c) Copy, Rename, Undo, Delete  
-d) Create, Retrieve, Upgrade, Deploy  
+Dans une API REST, que signifie l’acronyme CRUD ?
 
-**Reponse correcte :** a) Create, Read, Update, Delete
+a) Create, Read, Update, Delete
+b) Connect, Retrieve, Upload, Download
+c) Copy, Rename, Undo, Delete
+d) Create, Retrieve, Upgrade, Deploy
+
+**Réponse correcte :** a) Create, Read, Update, Delete
 
 ---
 
 ### Question 4
-Quel code HTTP est retourne pour une creation reussie dans une API REST ?
 
-a) 200 OK  
-b) 201 Created  
-c) 204 No Content  
-d) 301 Moved Permanently  
+Quel code HTTP est renvoyé pour une création réussie dans une API REST ?
 
-**Reponse correcte :** b) 201 Created
+a) 200 OK
+b) 201 Created
+c) 204 No Content
+d) 301 Moved Permanently
+
+**Réponse correcte :** b) 201 Created
 
 ---
 
 ### Question 5
-Quelle est la meilleure pratique pour gerer les mots de passe dans une application ?
 
-a) Les stocker en texte clair  
-b) Les chiffrer avec une cle secrete  
-c) Les hacher avec un algorithme securise (bcrypt, argon2)  
-d) Les encoder en base64  
+Quelle est la meilleure pratique pour gérer les mots de passe dans une application ?
 
-**Reponse correcte :** c) Les hacher avec un algorithme securise (bcrypt, argon2)
+a) Les stocker en texte clair
+b) Les chiffrer avec une clé secrète
+c) Les hacher avec un algorithme sécurisé (bcrypt, Argon2)
+d) Les encoder en base64
+
+**Réponse correcte :** c) Les hacher avec un algorithme sécurisé (bcrypt, Argon2)
 
 ---
 
 ### Question 6
-Dans FastAPI, quel decorateur utilise-t-on pour creer un endpoint GET ?
 
-a) `@app.get()`  
-b) `@app.route()`  
-c) `@app.endpoint()`  
-d) `@app.method()`  
+Dans FastAPI, quel décorateur utilise-t-on pour créer un endpoint GET ?
 
-**Reponse correcte :** a) `@app.get()`
+a) `@app.get()`
+b) `@app.route()`
+c) `@app.endpoint()`
+d) `@app.method()`
+
+**Réponse correcte :** a) `@app.get()`
 
 ---
 
 ### Question 7
+
 Quelle est la fonction de Pydantic dans FastAPI ?
 
-a) Gerer la base de donnees  
-b) Valider et serialiser les donnees automatiquement  
-c) Creer l'interface utilisateur  
-d) Gerer l'authentification  
+a) Gérer la base de données
+b) Valider et sérialiser les données automatiquement
+c) Créer l’interface utilisateur
+d) Gérer l’authentification
 
-**Reponse correcte :** b) Valider et serialiser les donnees automatiquement
+**Réponse correcte :** b) Valider et sérialiser les données automatiquement
 
 ---
 
 ### Question 8
-Dans SQLAlchemy, que signifie une relation "lazy='select'" ?
 
-a) La relation n'est jamais chargee  
-b) La relation est chargee immediatement  
-c) La relation est chargee a la demande avec une requete separee  
-d) La relation est mise en cache  
+Dans SQLAlchemy, que signifie une relation `lazy='select'` ?
 
-**Reponse correcte :** c) La relation est chargee a la demande avec une requete separee
+a) La relation n’est jamais chargée
+b) La relation est chargée immédiatement
+c) La relation est chargée à la demande par une requête séparée
+d) La relation est mise en cache
+
+**Réponse correcte :** c) La relation est chargée à la demande par une requête séparée
 
 ---
 
 ### Question 9
-Quel est l'objectif principal d'utiliser des migrations de base de donnees ?
 
-a) Accelerer les requetes  
-b) Gerer l'evolution du schema de maniere controlee  
-c) Reduire la taille de la base  
-d) Ameliorer la securite  
+Quel est l’objectif principal d’utiliser des migrations de base de données ?
 
-**Reponse correcte :** b) Gerer l'evolution du schema de maniere controlee
+a) Accélérer les requêtes
+b) Gérer l’évolution du schéma de manière contrôlée
+c) Réduire la taille de la base
+d) Améliorer la sécurité
+
+**Réponse correcte :** b) Gérer l’évolution du schéma de manière contrôlée
 
 ---
 
 ### Question 10
-Dans le contexte des interfaces graphiques, qu'est-ce qu'un "callback" ?
 
-a) Une fonction qui sauvegarde les donnees  
-b) Une fonction appelee en reponse a un evenement  
-c) Une fonction qui charge les donnees  
-d) Une fonction qui valide les entrees  
+Dans le contexte des interfaces graphiques, qu’est-ce qu’un « callback » ?
 
-**Reponse correcte :** b) Une fonction appelee en reponse a un evenement
+a) Une fonction qui sauvegarde les données
+b) Une fonction appelée en réponse à un événement
+c) Une fonction qui charge les données
+d) Une fonction qui valide les entrées
+
+**Réponse correcte :** b) Une fonction appelée en réponse à un événement
 
 ---
 
-## Questions de Synthese
+## Questions de synthèse
 
 ### Question 11
-Comparez les architectures MVC et MVP dans le contexte d'une application desktop. Donnez un exemple concret pour chacune.
 
-**Reponse attendue :**
+Comparez les architectures MVC et MVP dans le contexte d’une application desktop. Donnez un exemple concret pour chacune.
 
-**Architecture MVC (Model-View-Controller) :**
-- **Model** : Gere les donnees et la logique metier
-- **View** : Affiche les donnees a l'utilisateur
-- **Controller** : Gere les interactions utilisateur et coordonne Model/View
+**Réponse attendue :**
 
-**Architecture MVP (Model-View-Presenter) :**
-- **Model** : Gere les donnees et la logique metier
-- **View** : Interface passive, delegue tout au Presenter
-- **Presenter** : Contient toute la logique de presentation
+**Architecture MVC (Model–View–Controller) :**
+
+* **Model** : Gère les données et la logique métier
+* **View** : Affiche les données à l’utilisateur
+* **Controller** : Gère les interactions utilisateur et coordonne Model/View
+
+**Architecture MVP (Model–View–Presenter) :**
+
+* **Model** : Gère les données et la logique métier
+* **View** : Interface passive, délègue tout au Presenter
+* **Presenter** : Contient toute la logique de présentation
 
 **Exemple MVC avec PySide6 :**
+
 ```python
 # Model
 class StudentModel:
@@ -160,7 +176,7 @@ class StudentView(QMainWindow):
     
     def setup_ui(self):
         self.table = QTableWidget()
-        # ... configuration interface
+        # ... configuration de l’interface
 
 # Controller
 class StudentController:
@@ -177,20 +193,21 @@ class StudentController:
 ```
 
 **Exemple MVP :**
+
 ```python
 # Presenter
 class StudentPresenter:
     def __init__(self, model, view):
         self.model = model
         self.view = view
-        self.view.set_presenter(self)  # View connait le Presenter
+        self.view.set_presenter(self)  # La View connaît le Presenter
     
     def on_add_student_clicked(self, name, age):
         if self.validate_input(name, age):
             self.model.add_student(name, age)
             self.view.update_student_list(self.model.get_students())
         else:
-            self.view.show_error("Donnees invalides")
+            self.view.show_error("Données invalides")
 
 # View (plus passive)
 class StudentView(QMainWindow):
@@ -204,51 +221,54 @@ class StudentView(QMainWindow):
         )
 ```
 
-**Differences principales :**
-- Dans MVC, la View peut acceder directement au Model
-- Dans MVP, la View ne connait que le Presenter
-- MVP facilite les tests unitaires (View plus passive)
+**Différences principales :**
+
+* Dans MVC, la View peut accéder directement au Model.
+* Dans MVP, la View ne connaît que le Presenter.
+* MVP facilite les tests unitaires (View plus passive).
 
 ---
 
 ### Question 12
-Expliquez le concept de "separation des responsabilites" dans une application client-serveur. Comment l'implementer concretement ?
 
-**Reponse attendue :**
+Expliquez le concept de « séparation des responsabilités » dans une application client–serveur. Comment l’implémenter concrètement ?
 
-**Principe de separation des responsabilites :**
-Chaque composant doit avoir une responsabilite unique et bien definie, ce qui facilite la maintenance, les tests et l'evolution.
+**Réponse attendue :**
 
-**Dans une architecture client-serveur :**
+**Principe de séparation des responsabilités :**
+Chaque composant doit avoir une responsabilité unique et bien définie, ce qui facilite la maintenance, les tests et l’évolution.
 
-**Cote Serveur (API) :**
+**Dans une architecture client–serveur :**
+
+**Côté serveur (API) :**
+
 ```python
-# 1. Modeles de donnees (responsabilite: structure des donnees)
+# 1. Modèles de données (responsabilité : structure des données)
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     email = Column(String, unique=True)
 
-# 2. Services metier (responsabilite: logique business)
+# 2. Services métier (responsabilité : logique métier)
 class UserService:
     def __init__(self, db_session):
         self.db = db_session
     
     def create_user(self, email, password):
-        # Validation business
+        # Validation métier
         if self.email_exists(email):
-            raise ValueError("Email deja utilise")
+            raise ValueError("Email déjà utilisé")
         
-        # Hashage du mot de passe
+        # Hachage du mot de passe
         hashed_password = hash_password(password)
         
-        # Creation
+        # Création
         user = User(email=email, password=hashed_password)
         self.db.add(user)
         self.db.commit()
         return user
 
-# 3. Couche API (responsabilite: exposition HTTP)
+# 3. Couche API (responsabilité : exposition HTTP)
 @app.post("/users/")
 async def create_user_endpoint(user_data: UserCreate):
     try:
@@ -257,7 +277,7 @@ async def create_user_endpoint(user_data: UserCreate):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-# 4. Schemas de validation (responsabilite: validation des donnees)
+# 4. Schémas de validation (responsabilité : validation des données)
 class UserCreate(BaseModel):
     email: EmailStr
     password: str = Field(min_length=8)
@@ -270,9 +290,10 @@ class UserResponse(BaseModel):
         from_attributes = True
 ```
 
-**Cote Client (Interface) :**
+**Côté client (interface) :**
+
 ```python
-# 1. Services de communication (responsabilite: communication API)
+# 1. Services de communication (responsabilité : communication avec l’API)
 class UserApiService:
     def __init__(self, base_url):
         self.base_url = base_url
@@ -286,13 +307,13 @@ class UserApiService:
             response.raise_for_status()
             return response.json()
 
-# 2. Modeles client (responsabilite: representation locale des donnees)
+# 2. Modèles client (responsabilité : représentation locale des données)
 class ClientUser:
     def __init__(self, id, email):
         self.id = id
         self.email = email
 
-# 3. Controleurs/Presenters (responsabilite: logique de presentation)
+# 3. Contrôleurs/Presenters (responsabilité : logique de présentation)
 class UserController:
     def __init__(self, api_service, view):
         self.api_service = api_service
@@ -300,7 +321,7 @@ class UserController:
     
     async def create_user(self, email, password):
         try:
-            # Validation cote client
+            # Validation côté client
             if not self.validate_email(email):
                 self.view.show_error("Email invalide")
                 return
@@ -309,14 +330,14 @@ class UserController:
             user_data = await self.api_service.create_user(email, password)
             user = ClientUser(user_data["id"], user_data["email"])
             
-            # Mise a jour interface
+            # Mise à jour de l’interface
             self.view.add_user_to_list(user)
-            self.view.show_success("Utilisateur cree")
+            self.view.show_success("Utilisateur créé")
             
         except httpx.HTTPStatusError as e:
-            self.view.show_error(f"Erreur: {e.response.json()['detail']}")
+            self.view.show_error(f"Erreur : {e.response.json()['detail']}")
 
-# 4. Vues (responsabilite: affichage et interaction utilisateur)
+# 4. Vues (responsabilité : affichage et interaction utilisateur)
 class UserView(QMainWindow):
     def __init__(self, controller):
         super().__init__()
@@ -327,30 +348,33 @@ class UserView(QMainWindow):
         email = self.email_input.text()
         password = self.password_input.text()
         
-        # Deleguer au controleur
+        # Déléguer au contrôleur
         asyncio.create_task(
             self.controller.create_user(email, password)
         )
 ```
 
-**Avantages de cette separation :**
-- **Testabilite** : Chaque couche peut etre testee independamment
-- **Maintenabilite** : Modifications localisees
-- **Reutilisabilite** : Services peuvent etre reutilises
-- **Scalabilite** : Possibilite de remplacer/ameliorer chaque couche
+**Avantages de cette séparation :**
+
+* **Testabilité** : chaque couche peut être testée indépendamment
+* **Maintenabilité** : modifications localisées
+* **Réutilisabilité** : services réutilisables
+* **Scalabilité** : possibilité de remplacer/faire évoluer chaque couche
 
 ---
 
 ### Question 13
-Decrivez une strategie complete de gestion d'erreurs dans une application full-stack (client PySide6 + API FastAPI).
 
-**Reponse attendue :**
+Décrivez une stratégie complète de gestion d’erreurs dans une application full-stack (client PySide6 + API FastAPI).
 
-**Strategie de gestion d'erreurs multi-niveaux :**
+**Réponse attendue :**
 
-**1. Niveau Base de Donnees / ORM :**
+**Stratégie de gestion d’erreurs multi-niveaux :**
+
+**1. Niveau base de données / ORM :**
+
 ```python
-# Exceptions personnalisees
+# Exceptions personnalisées
 class DatabaseError(Exception):
     pass
 
@@ -360,26 +384,27 @@ class UserNotFoundError(DatabaseError):
 class DuplicateEmailError(DatabaseError):
     pass
 
-# Service avec gestion d'erreurs
+# Service avec gestion d’erreurs
 class UserService:
     def get_user(self, user_id):
         try:
             user = self.db.query(User).filter(User.id == user_id).first()
             if not user:
-                raise UserNotFoundError(f"Utilisateur {user_id} non trouve")
+                raise UserNotFoundError(f"Utilisateur {user_id} non trouvé")
             return user
         except SQLAlchemyError as e:
-            logger.error(f"Erreur base de donnees: {e}")
-            raise DatabaseError("Erreur d'acces aux donnees")
+            logger.error(f"Erreur base de données : {e}")
+            raise DatabaseError("Erreur d’accès aux données")
 ```
 
 **2. Niveau API (FastAPI) :**
+
 ```python
 from fastapi import HTTPException, status
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 
-# Gestionnaires d'exceptions globaux
+# Gestionnaires d’exceptions globaux
 @app.exception_handler(UserNotFoundError)
 async def user_not_found_handler(request, exc):
     return JSONResponse(
@@ -408,23 +433,24 @@ async def database_error_handler(request, exc):
         content={"error": "DATABASE_ERROR", "message": "Erreur interne"}
     )
 
-# Endpoint avec gestion d'erreurs
+# Endpoint avec gestion d’erreurs
 @app.get("/users/{user_id}")
 async def get_user(user_id: int):
     try:
         user = user_service.get_user(user_id)
         return UserResponse.from_orm(user)
     except UserNotFoundError:
-        raise  # Sera geree par le gestionnaire global
+        raise  # Gérée par le gestionnaire global
     except Exception as e:
-        logger.error(f"Erreur inattendue: {e}")
+        logger.error(f"Erreur inattendue : {e}")
         raise HTTPException(
             status_code=500,
             detail="Erreur interne du serveur"
         )
 ```
 
-**3. Niveau Client (Service de communication) :**
+**3. Niveau client (service de communication) :**
+
 ```python
 import httpx
 from typing import Optional
@@ -466,11 +492,12 @@ class ApiService:
         except httpx.ConnectError:
             raise ApiError(0, "CONNECTION_ERROR", "Impossible de se connecter au serveur")
         except httpx.HTTPStatusError as e:
-            self.logger.error(f"Erreur HTTP: {e}")
+            self.logger.error(f"Erreur HTTP : {e}")
             raise ApiError(e.response.status_code, "HTTP_ERROR", str(e))
 ```
 
-**4. Niveau Interface Utilisateur (PySide6) :**
+**4. Niveau interface utilisateur (PySide6) :**
+
 ```python
 from PySide6.QtWidgets import QMessageBox
 import asyncio
@@ -484,7 +511,7 @@ class UserController:
     
     async def load_user(self, user_id: int):
         try:
-            # Afficher indicateur de chargement
+            # Afficher l’indicateur de chargement
             self.view.show_loading(True)
             
             user_data = await self.api_service.get_user(user_id)
@@ -493,19 +520,19 @@ class UserController:
         except ApiError as e:
             self.handle_api_error(e)
         except Exception as e:
-            self.logger.error(f"Erreur inattendue: {e}")
-            self.view.show_error("Une erreur inattendue s'est produite")
+            self.logger.error(f"Erreur inattendue : {e}")
+            self.view.show_error("Une erreur inattendue s’est produite")
         finally:
             self.view.show_loading(False)
     
     def handle_api_error(self, error: ApiError):
-        """Gestion centralisee des erreurs API"""
+        """Gestion centralisée des erreurs API"""
         error_messages = {
-            "USER_NOT_FOUND": "Utilisateur non trouve",
-            "VALIDATION_ERROR": "Donnees invalides",
-            "DUPLICATE_EMAIL": "Cet email est deja utilise",
-            "DATABASE_ERROR": "Erreur de base de donnees",
-            "TIMEOUT": "Timeout de connexion. Verifiez votre connexion internet.",
+            "USER_NOT_FOUND": "Utilisateur non trouvé",
+            "VALIDATION_ERROR": "Données invalides",
+            "DUPLICATE_EMAIL": "Cet email est déjà utilisé",
+            "DATABASE_ERROR": "Erreur de base de données",
+            "TIMEOUT": "Timeout de connexion. Vérifiez votre connexion internet.",
             "CONNECTION_ERROR": "Impossible de se connecter au serveur"
         }
         
@@ -516,7 +543,7 @@ class UserController:
         elif error.status_code in [400, 422]:
             self.view.show_validation_error(message)
         elif error.status_code >= 500:
-            self.view.show_error("Erreur serveur. Reessayez plus tard.")
+            self.view.show_error("Erreur serveur. Réessayez plus tard.")
         else:
             self.view.show_error(message)
 
@@ -531,12 +558,13 @@ class UserView(QMainWindow):
         QMessageBox.information(self, "Validation", message)
     
     def show_loading(self, loading: bool):
-        # Afficher/masquer indicateur de chargement
+        # Afficher/masquer l’indicateur de chargement
         self.loading_indicator.setVisible(loading)
         self.content_widget.setEnabled(not loading)
 ```
 
-**5. Logging et Monitoring :**
+**5. Journalisation et monitoring :**
+
 ```python
 import logging
 from datetime import datetime
@@ -551,37 +579,39 @@ logging.basicConfig(
     ]
 )
 
-# Logger personnalise pour les erreurs utilisateur
+# Logger personnalisé pour les erreurs utilisateur
 class UserActivityLogger:
     def __init__(self):
         self.logger = logging.getLogger("user_activity")
     
     def log_error(self, user_id: Optional[int], action: str, error: str):
         self.logger.error(
-            f"User {user_id} - Action: {action} - Error: {error}"
+            f"User {user_id} - Action : {action} - Error : {error}"
         )
     
     def log_success(self, user_id: Optional[int], action: str):
         self.logger.info(
-            f"User {user_id} - Action: {action} - Success"
+            f"User {user_id} - Action : {action} - Success"
         )
 ```
 
-**Principes cles :**
-- **Propagation controlee** : Les erreurs remontent avec des informations appropriees a chaque niveau
-- **Messages utilisateur** : Erreurs techniques traduites en messages comprehensibles
-- **Logging complet** : Traçabilite pour le debugging
-- **Graceful degradation** : L'application continue de fonctionner meme en cas d'erreur
-- **Feedback utilisateur** : Indicateurs visuels (loading, erreurs)
+**Principes clés :**
+
+* **Propagation contrôlée** : les erreurs remontent avec des informations adaptées à chaque niveau
+* **Messages utilisateur** : erreurs techniques traduites en messages compréhensibles
+* **Traçabilité** : journalisation complète pour le débogage
+* **Dégradation maîtrisée** : l’application continue de fonctionner même en cas d’erreur
+* **Retour utilisateur** : indicateurs visuels (chargement, erreurs)
 
 ---
 
 ### Question 14
-Proposez une architecture complete pour une application de gestion de projets avec authentification, incluant la structure des fichiers et les technologies utilisees.
 
-**Reponse attendue :**
+Proposez une architecture complète pour une application de gestion de projets avec authentification, incluant la structure des fichiers et les technologies utilisées.
 
-**Architecture Proposee :**
+**Réponse attendue :**
+
+**Architecture proposée :**
 
 ```
 projet_management/
@@ -589,11 +619,11 @@ projet_management/
 ├── backend/                          # API FastAPI
 │   ├── app/
 │   │   ├── __init__.py
-│   │   ├── main.py                   # Point d'entree FastAPI
+│   │   ├── main.py                   # Point d’entrée FastAPI
 │   │   ├── config.py                 # Configuration
-│   │   ├── database.py               # Configuration base de donnees
+│   │   ├── database.py               # Configuration base de données
 │   │   │
-│   │   ├── models/                   # Modeles SQLAlchemy
+│   │   ├── models/                   # Modèles SQLAlchemy
 │   │   │   ├── __init__.py
 │   │   │   ├── base.py
 │   │   │   ├── user.py
@@ -601,14 +631,14 @@ projet_management/
 │   │   │   ├── task.py
 │   │   │   └── team.py
 │   │   │
-│   │   ├── schemas/                  # Schemas Pydantic
+│   │   ├── schemas/                  # Schémas Pydantic
 │   │   │   ├── __init__.py
 │   │   │   ├── user.py
 │   │   │   ├── project.py
 │   │   │   ├── task.py
 │   │   │   └── auth.py
 │   │   │
-│   │   ├── services/                 # Logique metier
+│   │   ├── services/                 # Logique métier
 │   │   │   ├── __init__.py
 │   │   │   ├── auth_service.py
 │   │   │   ├── user_service.py
@@ -622,7 +652,7 @@ projet_management/
 │   │   │   ├── projects.py
 │   │   │   └── tasks.py
 │   │   │
-│   │   ├── dependencies/             # Dependencies FastAPI
+│   │   ├── dependencies/             # Dépendances FastAPI
 │   │   │   ├── __init__.py
 │   │   │   ├── auth.py
 │   │   │   └── database.py
@@ -651,10 +681,10 @@ projet_management/
 ├── frontend/                         # Application PySide6
 │   ├── app/
 │   │   ├── __init__.py
-│   │   ├── main.py                   # Point d'entree
+│   │   ├── main.py                   # Point d’entrée
 │   │   ├── config.py                 # Configuration client
 │   │   │
-│   │   ├── models/                   # Modeles client
+│   │   ├── models/                   # Modèles client
 │   │   │   ├── __init__.py
 │   │   │   ├── user.py
 │   │   │   ├── project.py
@@ -667,7 +697,7 @@ projet_management/
 │   │   │   ├── project_service.py
 │   │   │   └── task_service.py
 │   │   │
-│   │   ├── controllers/              # Logique de controle
+│   │   ├── controllers/              # Logique de contrôle
 │   │   │   ├── __init__.py
 │   │   │   ├── auth_controller.py
 │   │   │   ├── main_controller.py
@@ -686,7 +716,7 @@ projet_management/
 │   │   │       ├── project_dialog.py
 │   │   │       └── task_dialog.py
 │   │   │
-│   │   ├── widgets/                  # Widgets personnalises
+│   │   ├── widgets/                  # Widgets personnalisés
 │   │   │   ├── __init__.py
 │   │   │   ├── task_widget.py
 │   │   │   ├── project_widget.py
@@ -715,7 +745,7 @@ projet_management/
 │   │
 │   └── requirements.txt
 │
-├── shared/                           # Code partage
+├── shared/                           # Code partagé
 │   ├── __init__.py
 │   ├── constants.py
 │   ├── enums.py
@@ -727,16 +757,17 @@ projet_management/
 │   ├── user_guide.md
 │   └── developer_guide.md
 │
-├── docker-compose.yml                # Docker pour dev
+├── docker-compose.yml                # Docker pour le dev
 ├── Dockerfile.backend
 ├── Dockerfile.frontend
 ├── README.md
 └── .gitignore
 ```
 
-**Technologies Utilisees :**
+**Technologies utilisées :**
 
 **Backend :**
+
 ```python
 # requirements.txt
 fastapi==0.104.1
@@ -754,6 +785,7 @@ pytest-asyncio==0.21.1
 ```
 
 **Frontend :**
+
 ```python
 # requirements.txt
 PySide6==6.6.0
@@ -763,9 +795,10 @@ pytest==7.4.3
 pytest-qt==4.2.0
 ```
 
-**Implementation des composants cles :**
+**Implémentation des composants clés :**
 
-**1. Authentification Backend :**
+**1. Authentification backend :**
+
 ```python
 # app/services/auth_service.py
 from passlib.context import CryptContext
@@ -814,7 +847,8 @@ async def get_current_user(token: str = Depends(security)):
     return payload
 ```
 
-**2. Service Client avec Authentification :**
+**2. Service client avec authentification :**
+
 ```python
 # app/services/base_service.py
 import httpx
@@ -845,7 +879,7 @@ class BaseApiService:
             )
             
             if response.status_code == 401:
-                # Token expire, rediriger vers login
+                # Token expiré : rediriger vers la connexion
                 from app.controllers.auth_controller import AuthController
                 AuthController.logout()
                 return None
@@ -866,7 +900,8 @@ class AuthApiService(BaseApiService):
         return response
 ```
 
-**3. Controleur Principal :**
+**3. Contrôleur principal :**
+
 ```python
 # app/controllers/main_controller.py
 from PySide6.QtCore import QObject, Signal
@@ -874,7 +909,7 @@ from app.services.auth_service import AuthApiService
 from app.services.project_service import ProjectApiService
 
 class MainController(QObject):
-    # Signaux pour communication avec les vues
+    # Signaux pour la communication avec les vues
     login_successful = Signal()
     login_failed = Signal(str)
     projects_loaded = Signal(list)
@@ -902,31 +937,34 @@ class MainController(QObject):
         try:
             projects = await self.project_service.get_all_projects()
             self.projects_loaded.emit(projects)
-        except Exception as e:
-            # Gerer l'erreur
+        except Exception:
+            # Gérer l’erreur si besoin
             pass
 ```
 
 **Avantages de cette architecture :**
-- **Separation claire** des responsabilites
-- **Scalabilite** : Facile d'ajouter de nouvelles fonctionnalites
-- **Testabilite** : Chaque composant peut etre teste independamment
-- **Maintenabilite** : Code organise et modulaire
-- **Securite** : Authentification JWT robuste
-- **Flexibilite** : Peut etre adapte facilement
+
+* **Séparation claire** des responsabilités
+* **Scalabilité** : ajout de fonctionnalités facilité
+* **Testabilité** : chaque composant testable indépendamment
+* **Maintenabilité** : code organisé et modulaire
+* **Sécurité** : authentification JWT robuste
+* **Flexibilité** : adaptation aisée
 
 ---
 
 ### Question 15
-Concevez un plan de tests complet pour une application qui combine une interface PySide6 et une API FastAPI. Incluez les differents types de tests et des exemples de code.
 
-**Reponse attendue :**
+Concevez un plan de tests complet pour une application combinant une interface PySide6 et une API FastAPI. Incluez les différents types de tests et des exemples de code.
 
-**Strategie de Tests Complete :**
+**Réponse attendue :**
 
-**1. Tests Backend (API FastAPI) :**
+**Stratégie de tests complète :**
+
+**1. Tests backend (API FastAPI) :**
 
 **Tests unitaires des services :**
+
 ```python
 # tests/test_services/test_auth_service.py
 import pytest
@@ -946,7 +984,7 @@ class TestAuthService:
         assert not self.auth_service.verify_password("wrong_password", hashed)
     
     def test_token_creation_and_verification(self):
-        """Test de creation et verification de token"""
+        """Test de création et vérification de token"""
         data = {"user_id": 1, "email": "test@example.com"}
         token = self.auth_service.create_access_token(data)
         
@@ -957,13 +995,14 @@ class TestAuthService:
         assert payload["email"] == "test@example.com"
     
     def test_invalid_token_verification(self):
-        """Test de verification d'un token invalide"""
+        """Test de vérification d’un token invalide"""
         invalid_token = "invalid.token.here"
         payload = self.auth_service.verify_token(invalid_token)
         assert payload is None
 ```
 
-**Tests d'integration API :**
+**Tests d’intégration API :**
+
 ```python
 # tests/test_api/test_auth_endpoints.py
 import pytest
@@ -977,7 +1016,7 @@ client = TestClient(app)
 
 class TestAuthEndpoints:
     def test_register_user_success(self):
-        """Test d'inscription reussie"""
+        """Test d’inscription réussie"""
         user_data = {
             "email": "test@example.com",
             "password": "secure_password_123",
@@ -991,10 +1030,10 @@ class TestAuthEndpoints:
         assert data["email"] == user_data["email"]
         assert data["full_name"] == user_data["full_name"]
         assert "id" in data
-        assert "password" not in data  # Mot de passe ne doit pas etre retourne
+        assert "password" not in data  # Le mot de passe ne doit pas être renvoyé
     
     def test_register_duplicate_email(self):
-        """Test d'inscription avec email duplique"""
+        """Test d’inscription avec email dupliqué"""
         user_data = {
             "email": "duplicate@example.com",
             "password": "password123",
@@ -1005,15 +1044,15 @@ class TestAuthEndpoints:
         response1 = client.post("/auth/register", json=user_data)
         assert response1.status_code == 201
         
-        # Deuxieme utilisateur avec meme email
+        # Deuxième utilisateur avec le même email
         user_data["full_name"] = "User 2"
         response2 = client.post("/auth/register", json=user_data)
         assert response2.status_code == 400
         assert "email" in response2.json()["detail"].lower()
     
     def test_login_success(self):
-        """Test de connexion reussie"""
-        # Creer un utilisateur d'abord
+        """Test de connexion réussie"""
+        # Créer un utilisateur d’abord
         user_data = {
             "email": "login_test@example.com",
             "password": "test_password_123",
@@ -1048,13 +1087,13 @@ class TestAuthEndpoints:
         assert "invalid" in response.json()["detail"].lower()
     
     def test_protected_endpoint_without_token(self):
-        """Test d'acces a un endpoint protege sans token"""
+        """Test d’accès à un endpoint protégé sans token"""
         response = client.get("/users/me")
         assert response.status_code == 401
     
     def test_protected_endpoint_with_valid_token(self):
-        """Test d'acces a un endpoint protege avec token valide"""
-        # Creer et connecter un utilisateur
+        """Test d’accès à un endpoint protégé avec token valide"""
+        # Créer et connecter un utilisateur
         user_data = {
             "email": "protected_test@example.com",
             "password": "test_password_123",
@@ -1068,7 +1107,7 @@ class TestAuthEndpoints:
         })
         token = login_response.json()["access_token"]
         
-        # Acceder a l'endpoint protege
+        # Accéder à l’endpoint protégé
         headers = {"Authorization": f"Bearer {token}"}
         response = client.get("/users/me", headers=headers)
         
@@ -1077,7 +1116,8 @@ class TestAuthEndpoints:
         assert data["email"] == user_data["email"]
 ```
 
-**Tests de performance et charge :**
+**Tests de performance et de charge :**
+
 ```python
 # tests/test_performance/test_load.py
 import asyncio
@@ -1088,7 +1128,7 @@ import pytest
 class TestAPIPerformance:
     @pytest.mark.asyncio
     async def test_concurrent_requests(self):
-        """Test de requetes concurrentes"""
+        """Test de requêtes concurrentes"""
         base_url = "http://localhost:8000"
         
         async def make_request(session, endpoint):
@@ -1101,7 +1141,7 @@ class TestAPIPerformance:
             }
         
         async with httpx.AsyncClient() as client:
-            # 100 requetes concurrentes
+            # 100 requêtes concurrentes
             tasks = [
                 make_request(client, "/health")
                 for _ in range(100)
@@ -1109,17 +1149,18 @@ class TestAPIPerformance:
             
             results = await asyncio.gather(*tasks)
             
-            # Verifications
+            # Vérifications
             success_count = sum(1 for r in results if r["status_code"] == 200)
             avg_response_time = sum(r["response_time"] for r in results) / len(results)
             
-            assert success_count >= 95  # Au moins 95% de succes
-            assert avg_response_time < 1.0  # Temps de reponse moyen < 1s
+            assert success_count >= 95  # Au moins 95 % de succès
+            assert avg_response_time < 1.0  # Temps de réponse moyen < 1 s
 ```
 
-**2. Tests Frontend (PySide6) :**
+**2. Tests frontend (PySide6) :**
 
 **Tests unitaires des services client :**
+
 ```python
 # tests/test_services/test_auth_service_client.py
 import pytest
@@ -1134,8 +1175,8 @@ class TestAuthApiService:
     @pytest.mark.asyncio
     @patch('httpx.AsyncClient')
     async def test_login_success(self, mock_client):
-        """Test de connexion reussie cote client"""
-        # Mock de la reponse
+        """Test de connexion réussie côté client"""
+        # Mock de la réponse
         mock_response = AsyncMock()
         mock_response.status_code = 200
         mock_response.json.return_value = {
@@ -1151,7 +1192,7 @@ class TestAuthApiService:
         # Test
         result = await self.auth_service.login("test@example.com", "password123")
         
-        # Verifications
+        # Vérifications
         assert result["access_token"] == "fake_token_123"
         assert result["user"]["email"] == "test@example.com"
         assert self.auth_service.token == "fake_token_123"
@@ -1159,7 +1200,7 @@ class TestAuthApiService:
     @pytest.mark.asyncio
     @patch('httpx.AsyncClient')
     async def test_login_network_error(self, mock_client):
-        """Test de gestion d'erreur reseau"""
+        """Test de gestion d’erreur réseau"""
         mock_client_instance = AsyncMock()
         mock_client_instance.request.side_effect = httpx.ConnectError("Connection failed")
         mock_client.return_value.__aenter__.return_value = mock_client_instance
@@ -1168,7 +1209,8 @@ class TestAuthApiService:
             await self.auth_service.login("test@example.com", "password123")
 ```
 
-**Tests des controleurs :**
+**Tests des contrôleurs :**
+
 ```python
 # tests/test_controllers/test_auth_controller.py
 import pytest
@@ -1183,7 +1225,7 @@ class TestAuthController:
     
     @pytest.mark.asyncio
     async def test_login_success_emits_signal(self):
-        """Test que la connexion reussie emet le bon signal"""
+        """Test que la connexion réussie émet le bon signal"""
         # Mock du service
         self.controller.auth_service.login.return_value = {
             "access_token": "token123",
@@ -1196,28 +1238,29 @@ class TestAuthController:
         # Action
         await self.controller.login("test@example.com", "password123")
         
-        # Verification
-        assert len(spy) == 1  # Signal emis une fois
+        # Vérification
+        assert len(spy) == 1  # Signal émis une fois
         assert self.controller.current_user["email"] == "test@example.com"
     
     @pytest.mark.asyncio
     async def test_login_failure_emits_error_signal(self):
-        """Test que l'echec de connexion emet le signal d'erreur"""
+        """Test que l’échec de connexion émet le signal d’erreur"""
         # Mock du service pour lever une exception
         self.controller.auth_service.login.side_effect = Exception("Invalid credentials")
         
-        # Spy sur le signal d'erreur
+        # Spy sur le signal d’erreur
         spy = QSignalSpy(self.controller.login_failed)
         
         # Action
         await self.controller.login("test@example.com", "wrongpassword")
         
-        # Verification
+        # Vérification
         assert len(spy) == 1
-        assert "Invalid credentials" in spy[0][0]  # Message d'erreur
+        assert "Invalid credentials" in spy[0][0]  # Message d’erreur
 ```
 
-**Tests d'interface utilisateur :**
+**Tests d’interface utilisateur :**
+
 ```python
 # tests/test_views/test_login_view.py
 import pytest
@@ -1230,7 +1273,7 @@ from app.controllers.auth_controller import AuthController
 
 @pytest.fixture
 def app():
-    """Fixture pour l'application Qt"""
+    """Fixture pour l’application Qt"""
     return QApplication.instance() or QApplication([])
 
 class TestLoginView:
@@ -1239,22 +1282,22 @@ class TestLoginView:
         self.view = LoginView(self.controller)
     
     def test_initial_state(self, app):
-        """Test de l'etat initial de la vue"""
+        """Test de l’état initial de la vue"""
         assert self.view.email_input.text() == ""
         assert self.view.password_input.text() == ""
         assert self.view.login_button.isEnabled()
         assert not self.view.loading_indicator.isVisible()
     
     def test_login_button_click_calls_controller(self, app):
-        """Test que le clic sur le bouton appelle le controleur"""
-        # Saisir des donnees
+        """Test que le clic sur le bouton appelle le contrôleur"""
+        # Saisir des données
         self.view.email_input.setText("test@example.com")
         self.view.password_input.setText("password123")
         
         # Cliquer sur le bouton
         QTest.mouseClick(self.view.login_button, Qt.LeftButton)
         
-        # Verification
+        # Vérification
         self.controller.login.assert_called_once_with("test@example.com", "password123")
     
     def test_empty_fields_shows_validation_error(self, app):
@@ -1262,35 +1305,36 @@ class TestLoginView:
         # Laisser les champs vides et cliquer
         QTest.mouseClick(self.view.login_button, Qt.LeftButton)
         
-        # Verification que le controleur n'est pas appele
+        # Vérifier que le contrôleur n’est pas appelé
         self.controller.login.assert_not_called()
         
-        # Verification qu'un message d'erreur est affiche
+        # Vérifier qu’un message d’erreur est affiché
         assert self.view.error_label.isVisible()
         assert "requis" in self.view.error_label.text().lower()
     
     def test_login_success_hides_view(self, app):
-        """Test que le succes de connexion masque la vue"""
-        # Simuler un succes de connexion
+        """Test que le succès de connexion masque la vue"""
+        # Simuler un succès de connexion
         self.view.on_login_successful()
         
-        # Verification
+        # Vérification
         assert not self.view.isVisible()
     
     def test_login_error_shows_message(self, app):
-        """Test que l'erreur de connexion affiche un message"""
+        """Test que l’erreur de connexion affiche un message"""
         error_message = "Identifiants invalides"
         
         # Simuler une erreur
         self.view.on_login_failed(error_message)
         
-        # Verification
+        # Vérification
         assert self.view.error_label.isVisible()
         assert error_message in self.view.error_label.text()
         assert not self.view.loading_indicator.isVisible()
 ```
 
-**3. Tests d'integration End-to-End :**
+**3. Tests d’intégration de bout en bout :**
+
 ```python
 # tests/test_e2e/test_user_workflow.py
 import pytest
@@ -1306,23 +1350,23 @@ class TestUserWorkflow:
     @pytest.fixture(autouse=True)
     def setup_and_teardown(self):
         """Setup et teardown pour les tests E2E"""
-        # Demarrer le serveur de test
+        # Démarrer le serveur de test
         self.server_process = start_test_server()
-        time.sleep(2)  # Attendre que le serveur demarre
+        time.sleep(2)  # Attendre que le serveur démarre
         
         yield
         
-        # Arreter le serveur
+        # Arrêter le serveur
         stop_test_server(self.server_process)
     
     def test_complete_login_workflow(self):
-        """Test du workflow complet de connexion"""
+        """Test du parcours complet de connexion"""
         app = QApplication.instance() or QApplication([])
         
-        # Creer l'application
+        # Créer l’application
         main_app = create_app()
         
-        # 1. Affichage de l'ecran de connexion
+        # 1. Affichage de l’écran de connexion
         login_view = main_app.login_view
         assert login_view.isVisible()
         
@@ -1330,10 +1374,10 @@ class TestUserWorkflow:
         login_view.email_input.setText("test@example.com")
         login_view.password_input.setText("password123")
         
-        # 3. Cliquer sur connexion
+        # 3. Cliquer sur « Connexion »
         QTest.mouseClick(login_view.login_button, Qt.LeftButton)
         
-        # 4. Attendre la reponse (avec timeout)
+        # 4. Attendre la réponse (avec timeout)
         timeout = 5000  # 5 secondes
         start_time = time.time()
         
@@ -1341,16 +1385,17 @@ class TestUserWorkflow:
             app.processEvents()
             time.sleep(0.1)
         
-        # 5. Verifier que l'ecran principal est affiche
+        # 5. Vérifier que l’écran principal est affiché
         assert not login_view.isVisible()
         assert main_app.main_view.isVisible()
         
-        # 6. Verifier que les donnees utilisateur sont chargees
+        # 6. Vérifier que les données utilisateur sont chargées
         assert main_app.controller.current_user is not None
         assert main_app.controller.current_user["email"] == "test@example.com"
 ```
 
 **4. Configuration des tests :**
+
 ```python
 # tests/conftest.py
 import pytest
@@ -1363,20 +1408,20 @@ from app.database import Base, get_db
 from app.models import User
 from app.services.auth_service import AuthService
 
-# Base de donnees de test
+# Base de données de test
 TEST_DATABASE_URL = "sqlite:///./test.db"
 test_engine = create_engine(TEST_DATABASE_URL, connect_args={"check_same_thread": False})
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=test_engine)
 
 @pytest.fixture
 def test_db():
-    """Fixture pour la base de donnees de test"""
+    """Fixture pour la base de données de test"""
     Base.metadata.create_all(bind=test_engine)
     yield
     Base.metadata.drop_all(bind=test_engine)
 
 def override_get_db():
-    """Override de la dependance de base de donnees"""
+    """Override de la dépendance base de données"""
     try:
         db = TestingSessionLocal()
         yield db
@@ -1385,7 +1430,7 @@ def override_get_db():
 
 @pytest.fixture
 def auth_service():
-    """Fixture pour le service d'authentification"""
+    """Fixture pour le service d’authentification"""
     return AuthService()
 
 @pytest.fixture
@@ -1407,7 +1452,7 @@ def test_user(test_db, auth_service):
     return user
 
 def start_test_server():
-    """Demarre le serveur de test"""
+    """Démarre le serveur de test"""
     return subprocess.Popen([
         "python", "-m", "uvicorn", 
         "app.main:app", 
@@ -1416,12 +1461,13 @@ def start_test_server():
     ])
 
 def stop_test_server(process):
-    """Arrete le serveur de test"""
+    """Arrête le serveur de test"""
     process.terminate()
     process.wait()
 ```
 
 **5. Commandes de test :**
+
 ```bash
 # pytest.ini
 [tool:pytest]
@@ -1438,43 +1484,46 @@ addopts =
     --cov-report=html
     --cov-report=term-missing
 
-# Commandes pour executer les tests
+# Commandes pour exécuter les tests
 pytest                              # Tous les tests
 pytest tests/test_backend/          # Tests backend uniquement
 pytest tests/test_frontend/         # Tests frontend uniquement
 pytest tests/test_e2e/              # Tests E2E uniquement
 pytest -k "test_auth"               # Tests contenant "auth"
-pytest --cov=app --cov-report=html # Avec couverture de code
+pytest --cov=app --cov-report=html  # Avec couverture de code
 ```
 
-**Avantages de cette strategie :**
-- **Couverture complete** : Tests a tous les niveaux
-- **Automatisation** : Tests executables en CI/CD
-- **Isolation** : Tests independants avec fixtures
-- **Realisme** : Tests E2E simulant l'utilisation reelle
-- **Maintenance** : Structure claire et reutilisable
+**Avantages de cette stratégie :**
+
+* **Couverture complète** : tests à tous les niveaux
+* **Automatisation** : exécution en CI/CD
+* **Isolation** : tests indépendants avec fixtures
+* **Réalisme** : E2E simulant l’usage réel
+* **Maintenance** : structure claire et réutilisable
 
 ---
 
-## Bareme de Correction
+## Barème de correction
 
-| Section | Points | Details |
-|---------|--------|---------|
-| QCM (Questions 1-10) | 20 points | 2 points par question |
-| Questions de synthese (11-15) | 80 points | 16 points par question |
-| **Total** | **100 points** | |
+|                         Section |     Points     | Détails                |
+| ------------------------------: | :------------: | :--------------------- |
+|          QCM (questions 1 à 10) |    20 points   | 2 points par question  |
+| Questions de synthèse (11 à 15) |    80 points   | 16 points par question |
+|                       **Total** | **100 points** |                        |
 
-### Criteres d'evaluation pour les questions de synthese :
-- **Comprehension globale** (4 pts) : Maitrise des concepts
-- **Completude** (4 pts) : Tous les aspects abordes
-- **Exemples concrets** (4 pts) : Code et implementations
-- **Bonnes pratiques** (2 pts) : Respect des standards
-- **Clarte et organisation** (2 pts) : Presentation structuree
+### Critères d’évaluation pour les questions de synthèse
 
-### Notes de passage :
-- **Excellent** : 90-100 points (90-100%)
-- **Bien** : 80-89 points (80-89%)
-- **Satisfaisant** : 70-79 points (70-79%)
-- **Insuffisant** : < 70 points (< 70%)
+* **Compréhension globale** (4 pts) : maîtrise des concepts
+* **Complétude** (4 pts) : tous les aspects abordés
+* **Exemples concrets** (4 pts) : code et implémentations
+* **Bonnes pratiques** (2 pts) : respect des standards
+* **Clarté et organisation** (2 pts) : présentation structurée
 
-Ce quiz de revision generale teste la maitrise complete du cours et la capacite a synthetiser les connaissances acquises. Bonne chance !
+### Notes de passage
+
+* **Excellent** : 90–100 points (90–100 %)
+* **Bien** : 80–89 points (80–89 %)
+* **Satisfaisant** : 70–79 points (70–79 %)
+* **Insuffisant** : < 70 points (< 70 %)
+
+Ce quiz de révision générale évalue la maîtrise complète du cours et la capacité à synthétiser les connaissances acquises. **Bonne chance !**
