@@ -1,5 +1,3 @@
-Voici la version corrigée en français.
-
 # Quiz 25 – Révision générale
 
 ## Questions à choix multiples
@@ -1527,3 +1525,4 @@ pytest --cov=app --cov-report=html  # Avec couverture de code
 * **Insuffisant** : < 70 points (< 70 %)
 
 Ce quiz de révision générale évalue la maîtrise complète du cours et la capacité à synthétiser les connaissances acquises. **Bonne chance !**
+
