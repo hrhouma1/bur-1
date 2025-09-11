@@ -14,7 +14,7 @@
    * B. Créer une fenêtre principale avec menus, barres d’outils et statut
    * C. Fermer l’application
 
----
+<br/>
 
 ### Partie B – Widgets
 
@@ -26,7 +26,7 @@
    * C. `QProgressBar`
 6. Donne un exemple de widget utile pour saisir plusieurs lignes de texte.
 
----
+<br/>
 
 ### Partie C – Layouts
 
@@ -38,7 +38,7 @@
 8. (Vrai/Faux) Un layout permet de redimensionner les widgets automatiquement si on agrandit la fenêtre.
 9. Comment s’appelle le layout qui organise les widgets en tableau (lignes/colonnes) ?
 
----
+<br/>
 
 ### Partie D – Signaux et Slots
 
@@ -51,7 +51,7 @@ button.clicked.____(ma_fonction)
 
 12. Donne un exemple d’action qu’on peut déclencher avec un signal (par ex. quand on clique un bouton).
 
----
+<br/>
 
 ### Partie E – Dialogues et boîtes de messages
 
