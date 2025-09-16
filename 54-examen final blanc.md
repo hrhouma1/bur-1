@@ -267,7 +267,7 @@ d) Supprime la base de données
 <br/>
 <br/>
 
-# Partie 3 (Choisir 2 exercices)
+# Partie 3 (Choisir 3 exercices)
 
 ### 1) Introduction PySide6 — “Hello Lifecycle”
 
