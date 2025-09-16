@@ -25,112 +25,112 @@
 ### 1. Introduction PySide6
 
 **Q1.** Quelle classe lance une application PySide6 ?
-a) `QWidget`
-b) `QApplication`
-c) `QMainWindow`
-d) `QCoreApplication`
+- a) `QWidget`
+- b) `QApplication`
+- c) `QMainWindow`
+- d) `QCoreApplication`
 
 **Q2.** Quelle méthode démarre la boucle d’événements Qt ?
-a) `start()`
-b) `run()`
-c) `exec()`
-d) `main()`
+- a) `start()`
+- b) `run()`
+- c) `exec()`
+- d) `main()`
 
 ---
 
 ### 2. Widgets & Layouts
 
 **Q3.** `QVBoxLayout` organise les widgets :
-a) Horizontalement
-b) Verticalement
-c) En grille
-d) En pile avec onglets
+- a) Horizontalement
+- b) Verticalement
+- c) En grille
+- d) En pile avec onglets
 
 **Q4.** Quel widget est adapté à une saisie de texte simple ?
-a) `QTextEdit`
-b) `QLineEdit`
-c) `QLabel`
-d) `QPushButton`
+- a) `QTextEdit`
+- b) `QLineEdit`
+- c) `QLabel`
+- d) `QPushButton`
 
 ---
 
 ### 3. Signaux & Slots
 
 **Q5.** Quelle syntaxe connecte un bouton à une fonction ?
-a) `button.link(func)`
-b) `button.connect(func)`
-c) `button.clicked.connect(func)`
-d) `button.run(func)`
+- a) `button.link(func)`
+- b) `button.connect(func)`
+- c) `button.clicked.connect(func)`
+- d) `button.run(func)`
 
 **Q6.** Où peut-on définir un signal personnalisé ?
-a) Dans un `QWidget` sans héritage
-b) Dans une classe héritant de `QObject`
-c) Uniquement dans Qt Designer
-d) Impossible en PySide6
+- a) Dans un `QWidget` sans héritage
+- b) Dans une classe héritant de `QObject`
+- c) Uniquement dans Qt Designer
+- d) Impossible en PySide6
 
 ---
 
 ### 4. Qt Designer
 
 **Q7.** À quoi sert Qt Designer ?
-a) Compiler le code
-b) Dessiner des interfaces graphiques
-c) Déboguer du Python
-d) Générer des modèles de données
+- a) Compiler le code
+- b) Dessiner des interfaces graphiques
+- c) Déboguer du Python
+- d) Générer des modèles de données
 
 **Q8.** Quelle commande convertit un `.ui` en `.py` ?
-a) `pyside6-compile`
-b) `pyside6-uic`
-c) `qt-convert`
-d) `pyuic5`
+- a) `pyside6-compile`
+- b) `pyside6-uic`
+- c) `qt-convert`
+- d) `pyuic5`
 
 ---
 
 ### 5. Menus & Dialogues
 
 **Q9.** Quelle classe gère une barre de menus ?
-a) `QToolBar`
-b) `QMenuBar`
-c) `QMenuBox`
-d) `QMenuDialog`
+- a) `QToolBar`
+- b) `QMenuBar`
+- c) `QMenuBox`
+- d) `QMenuDialog`
 
 **Q10.** Pour ouvrir un fichier, on utilise :
-a) `QFileDialog.getOpenFileName()`
-b) `QInputDialog.getFile()`
-c) `QDialog.open()`
-d) `QMessageBox.getFile()`
+- a) `QFileDialog.getOpenFileName()`
+- b) `QInputDialog.getFile()`
+- c) `QDialog.open()`
+- d) `QMessageBox.getFile()`
 
 ---
 
 ### 6. Événements & Interactions
 
 **Q11.** Quelle méthode redéfinir pour une touche clavier ?
-a) `mousePressEvent`
-b) `keyPressEvent`
-c) `eventKey`
-d) `keyboardEvent`
+- a) `mousePressEvent`
+- b) `keyPressEvent`
+- c) `eventKey`
+- d) `keyboardEvent`
 
 **Q12.** Comment activer un menu contextuel sur clic droit ?
-a) `setContextMenuPolicy(Qt.CustomContextMenu)`
-b) `enableRightClickMenu()`
-c) `activateContextMenu()`
-d) `useMenu(True)`
+- a) `setContextMenuPolicy(Qt.CustomContextMenu)`
+- b) `enableRightClickMenu()`
+- c) `activateContextMenu()`
+- d) `useMenu(True)`
 
 ---
 
 ### 7. Tableaux & Modèles
 
 **Q13.** `QTableWidget` vs `QTableView` :
-a) `QTableWidget` utilise un modèle intégré
-b) `QTableView` ne peut afficher que du texte
-c) `QTableWidget` est plus rapide
-d) Aucun ne supporte l’édition
+- a) `QTableWidget` utilise un modèle intégré
+- b) `QTableView` ne peut afficher que du texte
+- c) `QTableWidget` est plus rapide
+- d) Aucun ne supporte l’édition
 
 **Q14.** Pourquoi préférer Model/View ?
-a) Pour limiter le code
-b) Pour gérer de grandes données efficacement
-c) Car `QTableWidget` est obsolète
-d) Parce que Qt Designer l’impose
+- a) Pour limiter le code
+- b) Pour gérer de grandes données efficacement
+- c) Car `QTableWidget` est obsolète
+- d) Parce que Qt Designer l’impose
 
 ---
 
@@ -143,42 +143,42 @@ c) `Base = db.Model()`
 d) `Base = orm_start()`
 
 **Q16.** Relation One-to-Many :
-a) `ForeignKey` + `relationship()`
-b) `OneToManyField()`
-c) `ManyLink()`
-d) `connect_tables()`
+- a) `ForeignKey` + `relationship()`
+- b) `OneToManyField()`
+- c) `ManyLink()`
+- d) `connect_tables()`
 
 ---
 
 ### 9. FastAPI
 
 **Q17.** Quelle syntaxe définit une route GET ?
-a) `@app.route("/items")`
-b) `@app.get("/items")`
-c) `@route.get("/items")`
-d) `@get.app("/items")`
+- a) `@app.route("/items")`
+- b) `@app.get("/items")`
+- c) `@route.get("/items")`
+- d) `@get.app("/items")`
 
 **Q18.** Quelle bibliothèque gère la validation de schémas ?
-a) `marshmallow`
-b) `pydantic`
-c) `sqlalchemy`
-d) `validators`
+- a) `marshmallow`
+- b) `pydantic`
+- c) `sqlalchemy`
+- d) `validators`
 
 ---
 
 ### 10. Architecture 3-tiers
 
 **Q19.** Quelles sont les trois couches ?
-a) Client – Serveur – Internet
-b) Présentation – Logique – Données
-c) UI – Threads – API
-d) Vue – Modèle – Contrôleur
+- a) Client – Serveur – Internet
+- b) Présentation – Logique – Données
+- c) UI – Threads – API
+- d) Vue – Modèle – Contrôleur
 
 **Q20.** Un avantage clé du 3-tiers est :
-a) Réduit le nombre de fichiers
-b) Sépare les responsabilités
-c) Évite l’usage d’API
-d) Supprime la base de données
+- a) Réduit le nombre de fichiers
+- b) Sépare les responsabilités
+- c) Évite l’usage d’API
+- d) Supprime la base de données
 
 
 <br/>
