@@ -271,99 +271,99 @@ d) `Base = orm_start()`
 
 ### 1) Introduction PySide6 — “Hello Lifecycle”
 
-**Objectif** : afficher une fenêtre, gérer `QApplication` et la fermeture propre.
-**Concept clé** : cycle de vie Qt.
-**Périmètre** : `QApplication` + `QMainWindow` minimal, `statusBar()` qui affiche “Ready”.
-**Étapes** : créer la fenêtre, brancher `aboutToQuit`, log dans la console.
-**Acceptation** : lancer → fenêtre titre “Hello Lifecycle”, fermer → log “Goodbye”.
+- **Objectif** : afficher une fenêtre, gérer `QApplication` et la fermeture propre.
+- **Concept clé** : cycle de vie Qt.
+- **Périmètre** : `QApplication` + `QMainWindow` minimal, `statusBar()` qui affiche “Ready”.
+- **Étapes** : créer la fenêtre, brancher `aboutToQuit`, log dans la console.
+- **Acceptation** : lancer → fenêtre titre “Hello Lifecycle”, fermer → log “Goodbye”.
 
 ---
 
 ### 2) Widgets & Layouts — “FormFlex”
 
-**Objectif** : petit formulaire réactif (Nom, Email, Bouton).
-**Concept clé** : `QVBoxLayout`, `QGridLayout`.
-**Périmètre** : `QLineEdit`, `QPushButton`, layout qui s’adapte au redimensionnement.
-**Étapes** : labels + champs, bouton “Valider” qui affiche un `QLabel` récap.
-**Acceptation** : redimensionner ne chevauche rien, clic → récap exact.
+- **Objectif** : petit formulaire réactif (Nom, Email, Bouton).
+- **Concept clé** : `QVBoxLayout`, `QGridLayout`.
+- **Périmètre** : `QLineEdit`, `QPushButton`, layout qui s’adapte au redimensionnement.
+- **Étapes** : labels + champs, bouton “Valider” qui affiche un `QLabel` récap.
+- **Acceptation** : redimensionner ne chevauche rien, clic → récap exact.
 
 ---
 
 ### 3) Signaux & Slots — “ChronoSignal”
 
-**Objectif** : chrono start/stop/reset.
-**Concept clé** : signaux Qt natifs + **signal personnalisé** `tick(int ms)`.
-**Périmètre** : `QTimer`, boutons Start/Stop/Reset, label mm\:ss.
-**Étapes** : `QTimer.timeout` → émettre `tick`; slot met à jour le label.
-**Acceptation** : Start incrémente, Stop fige, Reset remet à 00:00.
+- **Objectif** : chrono start/stop/reset.
+- **Concept clé** : signaux Qt natifs + **signal personnalisé** `tick(int ms)`.
+- **Périmètre** : `QTimer`, boutons Start/Stop/Reset, label mm\:ss.
+- **Étapes** : `QTimer.timeout` → émettre `tick`; slot met à jour le label.
+- **Acceptation** : Start incrémente, Stop fige, Reset remet à 00:00.
 
 ---
 
 ### 4) Qt Designer — “Login.ui”
 
-**Objectif** : boîte de dialogue de connexion produite dans Designer.
-**Concept clé** : charger `.ui` avec `pyside6-uic` (ou `QUiLoader`).
-**Périmètre** : champs user/password, bouton “Se connecter”.
-**Étapes** : dessiner `.ui`, générer `.py`, connecter le bouton pour valider non-vide.
-**Acceptation** : compilation `.ui` → `.py`, clic vide → `QMessageBox` d’erreur.
+- **Objectif** : boîte de dialogue de connexion produite dans Designer.
+- **Concept clé** : charger `.ui` avec `pyside6-uic` (ou `QUiLoader`).
+- **Périmètre** : champs user/password, bouton “Se connecter”.
+- **Étapes** : dessiner `.ui`, générer `.py`, connecter le bouton pour valider non-vide.
+- **Acceptation** : compilation `.ui` → `.py`, clic vide → `QMessageBox` d’erreur.
 
 ---
 
 ### 5) Menus & Dialogues — “MiniPad”
 
-**Objectif** : éditeur texte minimal.
-**Concept clé** : `QMenuBar`, `QAction`, `QFileDialog`.
-**Périmètre** : actions Fichier > Nouveau/Ouvrir/Enregistrer/Quitter, `QPlainTextEdit`.
-**Étapes** : ouvrir lit un fichier `.txt`, enregistrer écrit le contenu.
-**Acceptation** : ouvrir/enregistrer fonctionnent, astérisque dans le titre si non sauvegardé.
+- **Objectif** : éditeur texte minimal.
+- **Concept clé** : `QMenuBar`, `QAction`, `QFileDialog`.
+- **Périmètre** : actions Fichier > Nouveau/Ouvrir/Enregistrer/Quitter, `QPlainTextEdit`.
+- **Étapes** : ouvrir lit un fichier `.txt`, enregistrer écrit le contenu.
+- **Acceptation** : ouvrir/enregistrer fonctionnent, astérisque dans le titre si non sauvegardé.
 
 ---
 
 ### 6) Événements & Interactions — “DropGallery”
 
-**Objectif** : déposer des images pour les lister et prévisualiser.
-**Concept clé** : drag\&drop (`dragEnterEvent`, `dropEvent`), menu contextuel.
-**Périmètre** : zone drop, `QListWidget` des noms de fichiers, aperçu à droite.
-**Étapes** : accepter fichiers `.png/.jpg`, clic droit → “Ouvrir dans l’explorateur”.
-**Acceptation** : glisser 2 images → 2 lignes, aperçu change à la sélection.
+- **Objectif** : déposer des images pour les lister et prévisualiser.
+- **Concept clé** : drag\&drop (`dragEnterEvent`, `dropEvent`), menu contextuel.
+- **Périmètre** : zone drop, `QListWidget` des noms de fichiers, aperçu à droite.
+- **Étapes** : accepter fichiers `.png/.jpg`, clic droit → “Ouvrir dans l’explorateur”.
+- **Acceptation** : glisser 2 images → 2 lignes, aperçu change à la sélection.
 
 ---
 
 ### 7) Tables & Modèles — “UsersView”
 
-**Objectif** : afficher une table via **Model/View**.
-**Concept clé** : `QAbstractTableModel` personnalisé.
-**Périmètre** : colonnes (ID, Username, Email), 10 lignes mock.
-**Étapes** : implémenter `rowCount`, `columnCount`, `data`, `headerData`.
-**Acceptation** : tri activé sur Username, double-clic n’édite pas (lecture seule).
+- **Objectif** : afficher une table via **Model/View**.
+- **Concept clé** : `QAbstractTableModel` personnalisé.
+- **Périmètre** : colonnes (ID, Username, Email), 10 lignes mock.
+- **Étapes** : implémenter `rowCount`, `columnCount`, `data`, `headerData`.
+- **Acceptation** : tri activé sur Username, double-clic n’édite pas (lecture seule).
 
 ---
 
 ### 8) SQLAlchemy ORM — “ProductsLite (SQLite)”
 
-**Objectif** : CRUD minimal produits (nom, prix).
-**Concept clé** : `declarative_base`, `Session`, transactions.
-**Périmètre** : bouton Ajouter (ouvre mini dialog), table en lecture via `QTableView`.
-**Étapes** : modèle `Product(id, name, price)`, créer DB SQLite, lister/ajouter/supprimer.
-**Acceptation** : ajout persistant (relaunch conserve), suppression retire la ligne et DB.
+- **Objectif** : CRUD minimal produits (nom, prix).
+- **Concept clé** : `declarative_base`, `Session`, transactions.
+- **Périmètre** : bouton Ajouter (ouvre mini dialog), table en lecture via `QTableView`.
+- **Étapes** : modèle `Product(id, name, price)`, créer DB SQLite, lister/ajouter/supprimer.
+- **Acceptation** : ajout persistant (relaunch conserve), suppression retire la ligne et DB.
 
 ---
 
 ### 9) FastAPI — “PingTasks API + Client”
 
-**Objectif** : exposer une API et l’appeler depuis PySide6.
-**Concept clé** : routes `GET /ping`, `GET /tasks`, `POST /tasks`.
-**Périmètre** : API FastAPI en local, client PySide6 avec `httpx` en thread.
-**Étapes** : bouton “Ping API” affiche réponse; ajouter une tâche et relire la liste.
-**Acceptation** : Ping renvoie `{"status":"ok"}`, liste se met à jour après POST.
+- **Objectif** : exposer une API et l’appeler depuis PySide6.
+- **Concept clé** : routes `GET /ping`, `GET /tasks`, `POST /tasks`.
+- **Périmètre** : API FastAPI en local, client PySide6 avec `httpx` en thread.
+- **Étapes** : bouton “Ping API” affiche réponse; ajouter une tâche et relire la liste.
+- **Acceptation** : Ping renvoie `{"status":"ok"}`, liste se met à jour après POST.
 
 ---
 
 ### 10) Architecture 3-tiers — “DeskBooks-Mini”
 
-**Objectif** : bout-en-bout 3-tiers (UI ↔ API ↔ ORM).
-**Concept clé** : séparation Présentation / Services / Données.
-**Périmètre** : FastAPI (Book: id, title), SQLAlchemy (SQLite), PySide6 (liste + ajout).
-**Étapes** : `POST /books`, `GET /books`; côté client : formulaire titre, liste via modèle.
-**Acceptation** : ajouter un livre → persiste en DB, rechargement liste OK, UI non bloquée.
+- **Objectif** : bout-en-bout 3-tiers (UI ↔ API ↔ ORM).
+- **Concept clé** : séparation Présentation / Services / Données.
+- **Périmètre** : FastAPI (Book: id, title), SQLAlchemy (SQLite), PySide6 (liste + ajout).
+- **Étapes** : `POST /books`, `GET /books`; côté client : formulaire titre, liste via modèle.
+- **Acceptation** : ajouter un livre → persiste en DB, rechargement liste OK, UI non bloquée.
 
