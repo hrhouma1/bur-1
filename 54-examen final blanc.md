@@ -1,3 +1,23 @@
+
+# Résumé des **10 thèmes**
+
+1. **Introduction PySide6** — Structure et cycle de vie d’une application Qt.
+2. **Widgets & Layouts** — Utilisation des widgets de base et organisation avec layouts.
+3. **Signaux & Slots** — Programmation événementielle et signaux personnalisés.
+4. **Qt Designer** — Création et intégration d’interfaces `.ui` dans PySide6.
+5. **Menus & Dialogues** — Barres de menus, boîtes de dialogue et interactions.
+6. **Événements & Interactions** — Gestion clavier/souris, drag & drop, context menus.
+7. **Tableaux & Modèles** — QTableWidget/View et pattern Model/View personnalisés.
+8. **SQLAlchemy ORM** — Modélisation, relations et persistance des données.
+9. **FastAPI** — Création d’API REST, validation Pydantic et communication avec PySide6.
+10. **Architecture 3-tiers** — Séparation UI/Services/BD avec évolutivité et maintenabilité.
+
+
+
+
+<br/>
+<br/>
+
 # Partie 1
 
 
