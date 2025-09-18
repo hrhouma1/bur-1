@@ -8,8 +8,9 @@ https://forms.office.com/r/JgEy4Gf6cQ
 # Partie 2
 
 
-- Répondez aux 6 questions ci-dessous. Vous pouvez rédiger vos réponses sans limite de longueur.
-Un exemple de réponse vous est fourni à titre de référence.
+- Répondez à uniquement 3 questions parmi les 6 questions ci-dessous.
+- Vous pouvez rédiger vos réponses sans limite de longueur.
+- Un exemple de réponse vous est fourni à titre de référence.
 
 
 ### Ceci est un exemple (Q0)
