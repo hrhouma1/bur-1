@@ -40,3 +40,51 @@ class Item(BaseModel):
 - Q5. Donne un exemple concret de séparation entre la couche présentation et la couche logique métier.
 - Q6. Pourquoi l’architecture trois tiers facilite-t-elle la maintenabilité d’une application ?
 
+
+
+
+# Partie 3 (Choisir un seul exercice parmi les 2 proposés)
+
+### 1) SQLAlchemy ORM — “Mini-Stock Produits”
+
+* **Objectif** : concevoir une petite application de gestion de produits avec base SQLite.
+* **Concept clé** : utilisation de `declarative_base`, `Session` et opérations CRUD.
+* **Périmètre** :
+
+  * Formulaire avec `QLineEdit` pour le nom et le prix
+  * Boutons « Ajouter » et « Supprimer »
+  * Tableau `QTableView` pour afficher la liste des produits
+* **Étapes** :
+
+  * Définir un modèle `Product(id, name, price)`
+  * Créer la base SQLite au lancement
+  * Ajouter / supprimer un produit et mettre à jour la vue
+* **Acceptation** :
+
+  * Ajouter → le produit s’affiche dans le tableau et persiste en BD
+  * Supprimer → enlève l’élément de la BD et de l’interface
+  * Relancer l’app → les données déjà enregistrées apparaissent
+
+
+
+### 2) FastAPI + PySide6 — “TodoClient”
+
+* **Objectif** : créer une interface PySide6 consommant une API FastAPI locale.
+* **Concept clé** : communication entre client lourd et service REST (`GET` / `POST`).
+* **Périmètre** :
+
+  * API FastAPI avec routes `/tasks` (GET, POST)
+  * Côté PySide6 : champ texte pour saisir une tâche, bouton « Ajouter », liste `QListWidget` des tâches
+  * Requêtes envoyées via `httpx` (ou équivalent) en thread non bloquant
+* **Étapes** :
+
+  * Bouton « Ajouter » → POST vers l’API
+  * Rafraîchir la liste → GET des tâches
+  * Afficher le contenu reçu dans la liste Qt
+* **Acceptation** :
+
+  * Nouvelle tâche → visible immédiatement après POST
+  * Rafraîchir → liste synchronisée avec l’API
+  * L’UI reste fluide même si le serveur met du temps à répondre
+
+
