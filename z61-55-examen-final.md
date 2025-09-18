@@ -42,7 +42,8 @@ class Item(BaseModel):
 - Q6. Pourquoi l’architecture trois tiers facilite-t-elle la maintenabilité d’une application ?
 
 
-
+<br/>
+<br/>
 
 # Partie 3 (Choisir un seul exercice parmi les 2 proposés)
 
